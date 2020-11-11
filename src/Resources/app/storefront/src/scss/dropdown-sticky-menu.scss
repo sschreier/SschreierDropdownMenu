@@ -1,0 +1,21 @@
+$sschreier-zindex-dropdownstickymenu: 1000 !default;
+$sschreier-transition-duration-dropdownstickymenu: 400 !default;
+$sschreier-border-bottom-dropdownstickymenu: 1px solid #bcc1c7 !default;
+
+.main-navigation-dropdown-sticky {
+    background: #ffffff;
+    position: fixed;
+    z-index: $sschreier-zindex-dropdownstickymenu;
+    width: 100%;
+    top: 0;
+    transition-delay: 0s;
+    transition-property: transform;
+    transition-duration: $sschreier-transition-duration-dropdownstickymenu+'ms';
+    transition-timing-function: ease-in-out;
+    transform: translateY(-100%);
+
+    &.is--active {
+        transform: translateY(0);
+        border-bottom: $sschreier-border-bottom-dropdownstickymenu;
+    }
+}

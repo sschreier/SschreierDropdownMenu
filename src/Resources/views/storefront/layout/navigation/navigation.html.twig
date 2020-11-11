@@ -1,0 +1,67 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+{% block layout_main_navigation %}
+    {% if shopware.config.sschreierDropdownmenu.config.dropdownStickyMenuIsActive %}
+        {% set activeViewportsDropdownStickyMenuString = "" %}
+
+        {% for activeViewportDropdownStickyMenu in shopware.config.sschreierDropdownmenu.config.activeViewportsDropdownStickyMenu %}
+            {% set activeViewportsDropdownStickyMenuString = activeViewportsDropdownStickyMenuString ~ activeViewportDropdownStickyMenu %}
+        {% endfor %}
+
+        {% if activeViewportsDropdownStickyMenuString == "lgxl" or activeViewportsDropdownStickyMenuString == "xllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xl" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}    
+        {% endif %}
+
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown"
+             data-dropdown-sticky-menu="true"
+             data-dropdown-sticky-menu-plugin-options='{
+                "positionDropdownStickyMenuIsActive": "{{ shopware.config.sschreierDropdownmenu.config.positionDropdownStickyMenuIsActive }}",
+                "notActiveViewportsDropdownStickyMenu": "{{ notActiveViewportsDropdownStickyMenuString }}"
+             }'>
+            {{ parent() }}
+        </div>
+    {% else %}
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown">
+            {{ parent() }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block layout_main_navigation_menu_home %}
+    {% if shopware.config.sschreierDropdownmenu.config.showNavigationMenuItemHome %}
+        {% if shopware.config.sschreierDropdownmenu.config.replaceNavigationMenuItemHomeWithIcon %}
+             <a class="nav-link main-navigation-link{% if controllerAction is same as('home') %} active{% endif %} home-link"
+                href="{{ path('frontend.home.page') }}"
+                itemprop="url"
+                title="{{ "general.homeLink"|trans|striptags }}">
+                <div class="main-navigation-link-text">
+                    <span class="icon-home-container">{% sw_icon 'home' %}</span>
+                </div>
+            </a>
+        {% else %}
+            {{ parent() }}
+        {% endif %}
+    {% else %}
+    {% endif %}
+{% endblock %}
+
+{% block layout_main_navigation_menu_items %}
+    {% if shopware.config.sschreierDropdownmenu.config.dropdownMenuIsActive %}
+        {% sw_include '@Storefront/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTree: page.header.navigation.tree, level: 0, page: page.header.navigation.active} only %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+ {% block layout_main_navigation_menu_flyout_wrapper %}
+    {% if shopware.config.sschreierDropdownmenu.config.dropdownMenuIsActive %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+ {% endblock %}

@@ -1,0 +1,141 @@
+$sschreier-dropdownmenu-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2) !default;
+$sschreier-dropdownmenu-min-width: 275 !default;
+$sschreier-dropdownmenu-font-size: 14 !default;
+$sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
+
+@media (min-width: 992px) { 
+    .main-navigation-wrapper-dropdown {
+        .main-navigation {
+            .main-navigation-menu {
+                > .main-navigation-link {
+                    padding: 8px 32px 8px 0;
+
+                    .dropdown-menu {
+                        .main-navigation-link-text {
+                            font-size: $sschreier-dropdownmenu-font-size+'px';
+                        }
+                    }
+
+                    > .main-navigation-link-text {
+                        padding: 0 0 3px 0;
+                    }
+                }
+            }
+
+            .main-navigation-link {
+                position: relative;
+                padding: 4px 0 4px 0;
+                color: $sw-text-color;
+
+                .main-navigation-link-text {
+                    display: block;
+                    padding: 0px 4px 0px 4px;
+                    border: none;
+                    text-decoration: none;
+                    color: $sw-text-color;
+
+                    .icon {
+                        color: $sw-text-color;
+
+                        svg {
+                            color: $sw-text-color;
+                        }
+                    }
+                }
+
+                &.active {
+                    font-weight: normal;
+
+                    > .main-navigation-link-text {
+                        font-weight: 700;
+                    }
+
+                    &:hover {
+                        .main-navigation-link-text {
+                            color: $sw-text-color;
+
+                            .icon {
+                                color: $sw-text-color;
+
+                                svg {
+                                    color: $sw-text-color;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    > .main-navigation-link-text {
+                        color: $sw-color-brand-primary;
+
+                        .icon {
+                            color: $sw-color-brand-primary;
+
+                            svg {
+                                color: $sw-color-brand-primary;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dropdown {
+                > .dropdown-menu {
+                    display: block;
+                    min-width: $sschreier-dropdownmenu-min-width+'px';
+                    padding: $sschreier-dropdownmenu-padding;
+                    margin-top: 0;
+                    top: calc(100% + 1px);
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: visibility 0.2s, opacity 0.2s linear;
+                    border-radius: 0;
+                    border: none;
+                    box-shadow: $sschreier-dropdownmenu-box-shadow;
+
+                    .main-navigation-link-text {
+                        &:hover {
+                            color: $sw-color-brand-primary;
+
+                            .icon {
+                                color: $sw-color-brand-primary;
+    
+                                svg {
+                                    color: $sw-color-brand-primary;
+                                }
+                            }
+                        }
+
+                        > span {
+                            display: block;
+                            width: 100%;
+
+                            .icon {
+                                float: right;
+
+                                svg {
+                                    top: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.dropright {
+                    > .dropdown-menu {
+                        top: 0;
+                        margin-left: -1px;
+                    }
+                }
+
+                &:hover {
+                    > .dropdown-menu {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

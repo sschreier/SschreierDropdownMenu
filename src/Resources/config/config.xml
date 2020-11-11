@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Dropdown Menu</title>
+        <title lang="de-DE">Dropdown Menü</title>
+
+        <input-field type="bool">
+            <name>dropdownMenuIsActive</name>
+            <label>activate the dropdown menu</label>
+            <label lang="de-DE">Dropdown Menü aktivieren</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>dropdownMenuBoxShadow</name>
+            <label>shadow of the dropdown menu</label>
+            <label lang="de-DE">Schatten des Dropdown Menüs</label>
+            <defaultValue>5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2)</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuMinWidth</name>
+            <label>min width of the dropdown menu in pixels</label>
+            <label lang="de-DE">Mindestbreite des Dropdown Menüs in Pixeln</label>
+            <defaultValue>275</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuFontSize</name>
+            <label>font size of the dropdown menu in pixels</label>
+            <label lang="de-DE">Schriftgröße des Dropdown Menüs in Pixeln</label>
+            <defaultValue>14</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>dropdownMenuPadding</name>
+            <label>padding of the dropdown menu</label>
+            <label lang="de-DE">Innenabstand des Dropdown Menüs</label>
+            <defaultValue>8px 20px 8px 20px</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Navigation menu item Home</title>
+        <title lang="de-DE">Navigationsmenüpunkt Home</title>
+
+        <input-field type="bool">
+            <name>showNavigationMenuItemHome</name>
+            <label>show</label>
+            <label lang="de-DE">anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>replaceNavigationMenuItemHomeWithIcon</name>
+            <label>replace with house icon</label>
+            <label lang="de-DE">durch Haus - Icon ersetzt</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Dropdown Sticky Menu</title>
+        <title lang="de-DE">Dropdown Sticky Menü</title>
+
+        <input-field type="bool">
+            <name>dropdownStickyMenuIsActive</name>
+            <label>activate the dropdown sticky menu</label>
+            <label lang="de-DE">Dropdown Sticky Menü aktivieren</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>positionDropdownStickyMenuIsActive</name>
+            <label>position from which the dropdown sticky menu should be activated</label>
+            <label lang="de-DE">Position, ab der das Dropdown Sticky Menü aktiviert werden soll</label>
+            <defaultValue>120</defaultValue>
+        </input-field>
+
+        <input-field type="multi-select">
+            <name>activeViewportsDropdownStickyMenu</name>
+            <options>
+                <option>
+                    <id>lg</id>
+                    <name>tablet landscape (LG)</name>
+                    <name lang="de-DE">Tablet Querformat (LG)</name>
+                </option>
+                <option>
+                    <id>xl</id>
+                    <name>desktop (XL)</name>
+                    <name lang="de-DE">Desktop (XL)</name>
+                </option>
+            </options>
+            <label>viewports in which the dropdown sticky menu should be active</label>
+            <label lang="de-DE">Auflösungen, in denen das Dropdown Sticky Menü aktiv sein soll</label>
+        </input-field>
+
+        <input-field type="int">
+            <name>transitionDurationDropdownStickyMenu</name>
+            <label>duration of the animation in milliseconds</label>
+            <label lang="de-DE">Dauer der Animation in Millisekunden</label>
+            <defaultValue>400</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>zIndexDropdownStickyMenu</name>
+            <label>z-index value</label>
+            <label lang="de-DE">z-index - Wert</label>
+            <defaultValue>1000</defaultValue>
+        </input-field>
+
+         <input-field type="text">
+            <name>borderBottomDropdownStickyMenu</name>
+            <label>border bottom of the dropdown sticky menu</label>
+            <label lang="de-DE">Unterer Rahmen des Dropdown Sticky Menüs</label>
+            <defaultValue>1px solid #bcc1c7</defaultValue>
+        </input-field>
+    </card>
+</config>

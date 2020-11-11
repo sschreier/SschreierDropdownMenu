@@ -1,0 +1,52 @@
+{% block layout_main_navigation_menu_items %}
+	{% for treeItem in navigationTree %}
+		{% set category = treeItem.category %}
+		{% set name = category.translated.name %}
+		{% set categoryId = category.id %}
+
+		{% block layout_main_navigation_menu_item %}
+            <div class="nav-link main-navigation-link{% if treeItem.children|length > 0 %} dropdown{% endif %}{% if categoryId is same as(page.id) %} active{% endif %}{% if level > 0 %} dropright{% endif %}">
+				{% if category.type == 'folder' %}
+					<div class="main-navigation-link-text">
+						<span itemprop="name">
+							{{ name }}
+							{% if treeItem.children|length > 0 %}
+								{% if level > 0 %}
+									{% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
+								{% else %}
+									{% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+								{% endif %}
+							{% endif %}
+						</span>
+					</div>
+				{% else %}
+					<a class="main-navigation-link-text" 
+						href="{% if category.translated.externalLink %}{{ category.translated.externalLink }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: categoryId }) }}{% endif %}"
+						itemprop="url" 
+						title="{{ name }}">
+						<span itemprop="name">
+							{{ name }}
+							{% if treeItem.children|length > 0 %}
+								{% if level > 0 %}
+									{% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
+								{% else %}
+									{% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+								{% endif %}
+							{% endif %}
+						</span>
+					</a>
+				{% endif %}
+
+				{% if treeItem.children|length > 0 %}
+					{% block layout_main_navigation_menu_item_dropdown_menu %}
+						<div class="dropdown-menu">
+							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
+								{% sw_include '@Storefront/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTree: treeItem.children, level: level+1, page: page} only %}
+							{% endblock %}
+						</div>
+					{% endblock %}
+				{% endif %}
+			</div>
+		{% endblock %}
+	{% endfor %}
+{% endblock %}
