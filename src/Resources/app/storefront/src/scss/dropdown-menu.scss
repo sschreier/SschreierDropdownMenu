@@ -124,8 +124,8 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
 
                 &.dropright {
                     > .dropdown-menu {
-                        top: -8px;
-                        margin-left: 20px;
+                        top: 0;
+                        margin-left: -1px;
                     }
                 }
 
