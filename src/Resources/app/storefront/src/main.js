@@ -1,4 +1,4 @@
-import DropdownStickyMenuPlugin from './sticky-menu-plugin/dropdown-sticky-menu-plugin.plugin';
+import DropdownStickyMenuPlugin from './dropdown-sticky-menu-plugin/dropdown-sticky-menu-plugin.plugin';
 
 // register them via the existing PluginManager
 const PluginManager = window.PluginManager;

@@ -10,7 +10,7 @@ $sschreier-border-bottom-dropdownstickymenu: 1px solid #bcc1c7 !default;
     top: 0;
     transition-delay: 0s;
     transition-property: transform;
-    transition-duration: $sschreier-transition-duration-dropdownstickymenu+'ms';
+    transition-duration: $sschreier-transition-duration-dropdownstickymenu * 1ms;
     transition-timing-function: ease-in-out;
     transform: translateY(-100%);
 

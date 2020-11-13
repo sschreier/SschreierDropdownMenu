@@ -12,7 +12,7 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
 
                     .dropdown-menu {
                         .main-navigation-link-text {
-                            font-size: $sschreier-dropdownmenu-font-size+'px';
+                            font-size: $sschreier-dropdownmenu-font-size * 1px;
                         }
                     }
 
@@ -83,7 +83,7 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
             .dropdown {
                 > .dropdown-menu {
                     display: block;
-                    min-width: $sschreier-dropdownmenu-min-width+'px';
+                    min-width: $sschreier-dropdownmenu-min-width * 1px;
                     padding: $sschreier-dropdownmenu-padding;
                     margin-top: 0;
                     top: calc(100% + 1px);
