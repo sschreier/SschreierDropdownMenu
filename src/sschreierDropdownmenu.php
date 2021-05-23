@@ -1,9 +1,11 @@
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 
-     namespace sschreier\sschreierDropdownmenu;
+namespace sschreier\Dropdownmenu;
 
-     use Shopware\Core\Framework\Plugin;
+use Shopware\Core\Framework\Plugin;
 
-     class sschreierDropdownmenu extends Plugin {
+class sschreierDropdownmenu extends Plugin 
+{
 
-     }
+}

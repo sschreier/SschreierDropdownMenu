@@ -1,13 +1,22 @@
-{% block layout_main_navigation_menu_items %}
-	{% for treeItem in navigationTree %}
+{% block layout_main_navigation_menu_items_inner %}
+	{% if page.product is defined %}
+		{% set activePath = page.product.categoryTree %}
+	{% else %}
+		{% set activePath = pageHeaderNavigationActive.path %}
+	{% endif %}
+
+	{% for treeItem in navigationTreeItem %}
 		{% set category = treeItem.category %}
 		{% set name = category.translated.name %}
-		{% set categoryId = category.id %}
 
 		{% block layout_main_navigation_menu_item %}
-            <div class="nav-link main-navigation-link{% if treeItem.children|length > 0 %} dropdown{% endif %}{% if categoryId is same as(page.id) %} active{% endif %}{% if level > 0 %} dropright{% endif %}">
+            <div class="nav-link main-navigation-link
+            	{% if treeItem.children|length > 0 %} dropdown{% endif %}
+            	{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
+            	{% if level > 0 %} dropright{% endif %}">
 				{% if category.type == 'folder' %}
-					<div class="main-navigation-link-text">
+					<div class="main-navigation-link-text"
+						title="{{ name }}">
 						<span itemprop="name">
 							{{ name }}
 							{% if treeItem.children|length > 0 %}
@@ -20,9 +29,11 @@
 						</span>
 					</div>
 				{% else %}
-					<a class="main-navigation-link-text" 
-						href="{% if category.translated.externalLink %}{{ category.translated.externalLink }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: categoryId }) }}{% endif %}"
+					<a class="main-navigation-link-text
+						{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}"
+						href="{{ category_url(category) }}"
 						itemprop="url" 
+						{% if category_linknewtab(category) %}target="_blank"{% endif %}
 						title="{{ name }}">
 						<span itemprop="name">
 							{{ name }}
@@ -41,7 +52,7 @@
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
 						<div class="dropdown-menu">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
-								{% sw_include '@Storefront/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTree: treeItem.children, level: level+1, page: page} only %}
+								{% sw_include '@sschreierDropdownmenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
 							{% endblock %}
 						</div>
 					{% endblock %}

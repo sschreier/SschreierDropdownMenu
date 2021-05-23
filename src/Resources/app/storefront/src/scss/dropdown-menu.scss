@@ -19,6 +19,24 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
                     > .main-navigation-link-text {
                         padding: 0 0 3px 0;
                     }
+
+                    &.active {
+                        &:hover {
+                            > .main-navigation-link-text {
+                                &.active {
+                                    color: $sw-text-color;
+
+                                    .icon {
+                                        color: $sw-text-color;
+
+                                        svg {
+                                            color: $sw-text-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -29,8 +47,7 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
 
                 .main-navigation-link-text {
                     display: block;
-                    padding: 0px 4px 0px 4px;
-                    border: none;
+                    padding: 0 4px 0 4px;
                     text-decoration: none;
                     color: $sw-text-color;
 
@@ -59,6 +76,18 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
 
                                 svg {
                                     color: $sw-text-color;
+                                }
+                            }
+
+                            &.active {
+                                color: $sw-color-brand-primary;
+
+                                .icon {
+                                    color: $sw-color-brand-primary;
+
+                                    svg {
+                                        color: $sw-color-brand-primary;
+                                    }
                                 }
                             }
                         }
@@ -133,6 +162,18 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
                     > .dropdown-menu {
                         visibility: visible;
                         opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &.has-dropdownmenu {
+            .main-navigation {
+                .main-navigation-menu {
+                    .main-navigation-link {
+                        .main-navigation-link-text {
+                            border: none;
+                        }
                     }
                 }
             }

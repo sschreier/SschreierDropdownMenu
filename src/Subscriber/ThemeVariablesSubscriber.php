@@ -1,5 +1,5 @@
 <?php
-    namespace sschreier\sschreierDropdownmenu\Subscriber;
+    namespace sschreier\Dropdownmenu\Subscriber;
 
     use Symfony\Component\EventDispatcher\EventSubscriberInterface;
     use Shopware\Storefront\Event\ThemeCompilerEnrichScssVariablesEvent;

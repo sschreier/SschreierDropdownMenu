@@ -10,10 +10,11 @@
          }
     ],
     "require": {
-         "shopware/core": "*"
+         "shopware/core": "~6.4.0",
+         "shopware/storefront": "~6.4.0"
     },
     "extra": {
-         "shopware-plugin-class": "sschreier\\sschreierDropdownmenu\\sschreierDropdownmenu",
+         "shopware-plugin-class": "sschreier\\Dropdownmenu\\sschreierDropdownmenu",
          "plugin-icon": "src/Resources/config/plugin.png",
          "label": {
               "de-DE": "Dropdown Menü",
@@ -34,7 +35,7 @@
     },
     "autoload": {
          "psr-4": {
-              "sschreier\\sschreierDropdownmenu\\": "src/"
+              "sschreier\\Dropdownmenu\\": "src/"
          }
     }
 }
