@@ -3,10 +3,10 @@
 {% block layout_main_navigation %}
     {% block layout_main_navigation_dropdownmenu_before %}{% endblock %}
 
-    {% if config('sschreierDropdownmenu.config.dropdownStickyMenuIsActive') %}
+    {% if config('SschreierDropdownMenu.config.dropdownStickyMenuIsActive') %}
         {% set activeViewportsDropdownStickyMenuString = "" %}
 
-        {% for activeViewportDropdownStickyMenu in config('sschreierDropdownmenu.config.activeViewportsDropdownStickyMenu') %}
+        {% for activeViewportDropdownStickyMenu in config('SschreierDropdownMenu.config.activeViewportsDropdownStickyMenu') %}
             {% set activeViewportsDropdownStickyMenuString = activeViewportsDropdownStickyMenuString ~ activeViewportDropdownStickyMenu %}
         {% endfor %}
 
@@ -20,18 +20,26 @@
             {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}    
         {% endif %}
 
-        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('sschreierDropdownmenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}"
+        {% block layout_main_navigation_dropdownmenu_stickymenu_inner_before %}{% endblock %}
+
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}"
              data-dropdown-sticky-menu="true"
              data-dropdown-sticky-menu-plugin-options='{
-                "positionDropdownStickyMenuIsActive": "{{ config('sschreierDropdownmenu.config.positionDropdownStickyMenuIsActive') }}",
+                "positionDropdownStickyMenuIsActive": "{{ config('SschreierDropdownMenu.config.positionDropdownStickyMenuIsActive') }}",
                 "notActiveViewportsDropdownStickyMenu": "{{ notActiveViewportsDropdownStickyMenuString }}"
              }'>
             {{ parent() }}
         </div>
+
+        {% block layout_main_navigation_dropdownmenu_stickymenu_inner_after %}{% endblock %}
     {% else %}
-        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('sschreierDropdownmenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}">
+        {% block layout_main_navigation_dropdownmenu_inner_before %}{% endblock %}
+
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}">
             {{ parent() }}
         </div>
+
+        {% block layout_main_navigation_dropdownmenu_inner_after %}{% endblock %}
     {% endif %}
 
     {% block layout_main_navigation_dropdownmenu_after %}{% endblock %}
@@ -40,8 +48,8 @@
 {% block layout_main_navigation_menu_home %}
     {% block layout_main_navigation_menu_home_dropdownmenu_before %}{% endblock %}
 
-    {% if config('sschreierDropdownmenu.config.showNavigationMenuItemHome') %}
-        {% if config('sschreierDropdownmenu.config.replaceNavigationMenuItemHomeWithIcon') %}
+    {% if config('SschreierDropdownMenu.config.showNavigationMenuItemHome') %}
+        {% if config('SschreierDropdownMenu.config.replaceNavigationMenuItemHomeWithIcon') %}
              <a class="nav-link main-navigation-link{% if controllerAction is same as('home') %} active{% endif %} home-link"
                 href="{{ path('frontend.home.page') }}"
                 itemprop="url"
@@ -62,8 +70,8 @@
 {% block layout_main_navigation_menu_items %}
     {% block layout_main_navigation_menu_items_dropdownmenu_before %}{% endblock %}
 
-    {% if config('sschreierDropdownmenu.config.dropdownMenuIsActive') %}
-        {% sw_include '@sschreierDropdownmenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: page.header.navigation.tree, level: 0, pageHeaderNavigationActive: page.header.navigation.active} only %}
+    {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
+        {% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: page.header.navigation.tree, level: 0, pageHeaderNavigationActive: page.header.navigation.active} only %}
     {% else %}
         {{ parent() }}
     {% endif %}
@@ -74,7 +82,7 @@
  {% block layout_main_navigation_menu_flyout_wrapper %}
     {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_before %}{% endblock %}
 
-    {% if config('sschreierDropdownmenu.config.dropdownMenuIsActive') %}
+    {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
     {% else %}
         {{ parent() }}
     {% endif %}

@@ -1,28 +1,29 @@
 {
     "name": "sschreier/sschreierdropdownmenu",
     "description": "Dropdown Menü",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [
-         {
-              "name": "Sebastian Schreier"
-         }
+        {
+            "name": "Sebastian Schreier",
+            "role": "Manufacturer"
+        }
     ],
     "require": {
          "shopware/core": "~6.4.0",
          "shopware/storefront": "~6.4.0"
     },
     "extra": {
-         "shopware-plugin-class": "sschreier\\Dropdownmenu\\sschreierDropdownmenu",
+         "shopware-plugin-class": "Sschreier\\DropdownMenu\\SschreierDropdownMenu",
          "plugin-icon": "src/Resources/config/plugin.png",
          "label": {
               "de-DE": "Dropdown Menü",
               "en-GB": "Dropdown Menu"
          },
          "description": {
-              "de-DE": "Ein Plugin für ein Dropdown Menü ab 992 Pixel, bei dem auch der Navigationsmenüpunkt Home ausgeblendet oder durch ein Haus - Icon ersetzt werden kann.",
-              "en-GB": "A plugin for a dropdown menu from 992 pixels, at which the navigation menu item Home can also be hidden or can be replaced by a house icon."
+              "de-DE": "Eine Erweiterung für ein Dropdown Menü ab 992 Pixel, bei dem auch der Navigationsmenüpunkt Home ausgeblendet oder durch ein Haus - Icon ersetzt werden kann.",
+              "en-GB": "A extension for a dropdown menu from 992 pixels, at which the navigation menu item Home can also be hidden or can be replaced by a house icon."
          },
          "manufacturerLink": {
               "de-DE": "https://www.sebastianschreier.de",
@@ -35,7 +36,7 @@
     },
     "autoload": {
          "psr-4": {
-              "sschreier\\Dropdownmenu\\": "src/"
+              "Sschreier\\DropdownMenu\\": "src/"
          }
     }
 }

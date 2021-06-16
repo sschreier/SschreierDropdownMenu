@@ -66,20 +66,20 @@
     </card>
 
     <card>
-        <title>Dropdown Sticky Menu</title>
-        <title lang="de-DE">Dropdown Sticky Menü</title>
+        <title>Sticky effect of the menu</title>
+        <title lang="de-DE">Sticky - Effekt des Menüs</title>
 
         <input-field type="bool">
             <name>dropdownStickyMenuIsActive</name>
-            <label>activate the dropdown sticky menu</label>
-            <label lang="de-DE">Dropdown Sticky Menü aktivieren</label>
+            <label>activate the sticky effect for the menu</label>
+            <label lang="de-DE">Sticky - Effekt für das Menü aktivieren</label>
             <defaultValue>true</defaultValue>
         </input-field>
 
         <input-field type="int">
             <name>positionDropdownStickyMenuIsActive</name>
-            <label>position from which the dropdown sticky menu should be activated</label>
-            <label lang="de-DE">Position, ab der das Dropdown Sticky Menü aktiviert werden soll</label>
+            <label>position in pixels from which the menu should receive the sticky effect</label>
+            <label lang="de-DE">Position in Pixeln, ab der das Menü den Sticky - Effekt erhalten soll</label>
             <defaultValue>120</defaultValue>
             <placeholder>120</placeholder>
         </input-field>
@@ -98,14 +98,14 @@
                     <name lang="de-DE">Desktop (XL)</name>
                 </option>
             </options>
-            <label>viewports in which the dropdown sticky menu should be active</label>
-            <label lang="de-DE">Auflösungen, in denen das Dropdown Sticky Menü aktiv sein soll</label>
+            <label>viewports in which the menu should receive the sticky effect</label>
+            <label lang="de-DE">Auflösungen, in denen das Menü den Sticky - Effekt erhalten soll</label>
         </input-field>
 
         <input-field type="int">
             <name>transitionDurationDropdownStickyMenu</name>
-            <label>duration of the animation in milliseconds</label>
-            <label lang="de-DE">Dauer der Animation in Millisekunden</label>
+            <label>duration of the animation of the sticky effect in milliseconds</label>
+            <label lang="de-DE">Dauer der Animation des Sticky - Effekts in Millisekunden</label>
             <defaultValue>400</defaultValue>
             <placeholder>400</placeholder>
         </input-field>
@@ -120,8 +120,8 @@
 
          <input-field type="text">
             <name>borderBottomDropdownStickyMenu</name>
-            <label>border bottom of the dropdown sticky menu</label>
-            <label lang="de-DE">Unterer Rahmen des Dropdown Sticky Menüs</label>
+            <label>border bottom of the sticky effect of the menu</label>
+            <label lang="de-DE">Unterer Rahmen des Sticky - Effekts des Menüs</label>
             <defaultValue>1px solid #bcc1c7</defaultValue>
             <placeholder>1px solid #bcc1c7</placeholder>
         </input-field>

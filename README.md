@@ -1,6 +1,6 @@
 # A Dropdown Menu for Shopware 6
 
-A shopware 6 plugin for a dropdown menu from _992 pixels_. The navigation menu item _Home_ can also be hidden or can be replaced by a house icon.
+A shopware 6 extension for a dropdown menu from _992 pixels_. The navigation menu item _Home_ can also be hidden or can be replaced by a house icon.
 
 ## Possible Configurations
  - activate the dropdown menu
@@ -17,32 +17,32 @@ A shopware 6 plugin for a dropdown menu from _992 pixels_. The navigation menu i
  - set the z-index value
  - set the border bottom value
 
-## How to install the plugin
+## How to install the extension
 ### via console (recommended)
 
-1. Download the latest _sschreierDropdownmenu-master.zip_.
-2. Unzip the zip file and rename the folder to _sschreierDropdownmenu_. 
+1. Download the latest _SschreierDropdownMenu-master.zip_.
+2. Unzip the zip file and rename the folder to _SschreierDropdownMenu_. 
 3. Move the folder to the project folder _custom/plugins/_ .
 4. Connect to the console via ssh:
 
 ```
 bin/console plugin:refresh
-bin/console plugin:install --activate sschreierDropdownmenu
+bin/console plugin:install --activate SschreierDropdownMenu
 ```
 
 ### via zip upload
-1. Download the latest _sschreierDropdownmenu-master.zip_.
-2. Unzip the zip file and rename the folder to _sschreierDropdownmenu_.
-3. Zip the folder to _sschreierDropdownmenu.zip_.
+1. Download the latest _SschreierDropdownMenu-master.zip_.
+2. Unzip the zip file and rename the folder to _SschreierDropdownMenu_.
+3. Zip the folder to _SschreierDropdownMenu.zip_.
 4. Upload the zip in the Shopware Administration.
-5. Install & Activate the plugin.
+5. Install & Activate the extension.
 
-#### Plugin update (zip)
-1. Download the latest _sschreierDropdownmenu-master.zip_.
-2. Unzip the zip file and rename the folder to _sschreierDropdownmenu_.
-3. Zip the folder to _sschreierDropdownmenu.zip_.
+#### extension update (zip)
+1. Download the latest _SschreierDropdownMenu-master.zip_.
+2. Unzip the zip file and rename the folder to _SschreierDropdownMenu_.
+3. Zip the folder to _SschreierDropdownMenu.zip_.
 4. Upload the zip in the Shopware Administration.
-5. Update the plugin.
+5. Update the extension.
 
 ## Images
 
@@ -91,14 +91,14 @@ bin/console plugin:install --activate sschreierDropdownmenu
 
 ![sticky navigation menu without dropdown menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image11.jpg)
 
-### plugin configuration - area 1 part 1
+### extension configuration - area 1 part 1
 
-![plugin configuration - area 1 part 1](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
+![extension configuration - area 1 part 1](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
 
-### plugin configuration - area 1 part 2
+### extension configuration - area 1 part 2
 
-![plugin configuration - area 1 part 2](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
+![extension configuration - area 1 part 2](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
 
-### plugin configuration - area 1 part 3
+### extension configuration - area 1 part 3
 
-![plugin configuration - area 1 part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
+![extension configuration - area 1 part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)

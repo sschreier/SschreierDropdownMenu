@@ -52,7 +52,7 @@
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
 						<div class="dropdown-menu">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
-								{% sw_include '@sschreierDropdownmenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
+								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
 							{% endblock %}
 						</div>
 					{% endblock %}
