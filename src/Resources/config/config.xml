@@ -22,6 +22,14 @@
         </input-field>
 
         <input-field type="int">
+            <name>dropdownMenuPositionLeft</name>
+            <label>distance to the left of the dropdown menu in pixels</label>
+            <label lang="de-DE">Abstand nach links des Dropdown-Menüs in Pixeln</label>
+            <defaultValue>0</defaultValue>
+            <placeholder>0</placeholder>
+        </input-field>
+
+        <input-field type="int">
             <name>dropdownMenuMinWidth</name>
             <label>min width of the dropdown menu in pixels</label>
             <label lang="de-DE">Mindestbreite des Dropdown Menüs in Pixeln</label>
@@ -44,24 +52,52 @@
             <defaultValue>8px 20px 8px 20px</defaultValue>
             <placeholder>8px 20px 8px 20px</placeholder>
         </input-field>
-    </card>
-
-    <card>
-        <title>Navigation menu item Home</title>
-        <title lang="de-DE">Navigationsmenüpunkt Home</title>
 
         <input-field type="bool">
-            <name>showNavigationMenuItemHome</name>
-            <label>show</label>
-            <label lang="de-DE">anzeigen</label>
-            <defaultValue>true</defaultValue>
+            <name>dropdownMenuMultiLineOpenLastChildToLeft</name>
+            <label>open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left</label>
+            <label lang="de-DE">Bei einem vollflächigen oder mehrzeiligen Menü die Dropdown-Menüs des jeweils letzten Hauptmenüpunktes einer Zeile nach links öffnen</label>
+            <defaultValue>false</defaultValue>
         </input-field>
 
-        <input-field type="bool">
-            <name>replaceNavigationMenuItemHomeWithIcon</name>
-            <label>replace with house icon</label>
-            <label lang="de-DE">durch Haus - Icon ersetzt</label>
-            <defaultValue>false</defaultValue>
+        <input-field type="single-select">
+            <name>dropdownMenuNumberMainNavigationMenuItemsOpenToLeft</name>
+            <label>number of main navigation menu items where the dropdown menu should open to the left</label>
+            <label lang="de-DE">Anzahl an Hauptmenüpunkten, bei denen das Dropdown-Menü nach links geöffnet werden soll</label>
+            <options>
+                <option>
+                    <id>1</id>
+                    <name>1</name>
+                    <name lang="de-DE">1</name>
+                </option>
+                <option>
+                    <id>2</id>
+                    <name>2</name>
+                    <name lang="de-DE">2</name>
+                </option>
+                <option>
+                    <id>3</id>
+                    <name>3</name>
+                    <name lang="de-DE">3</name>
+                </option>
+            </options>
+            <defaultValue>1</defaultValue>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft</name>
+            <label>minimum number of main navigation menu items per line from which the opening of the dropdown menu to the left should be checked</label>
+            <label lang="de-DE">Mindestanzahl an Hauptmenüpunkten je Zeile, ab denen das Öffnen des Dropdown-Menüs nach links geprüft werden soll</label>
+            <defaultValue>3</defaultValue>
+            <placeholder>3</placeholder>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuDistanceTextToLeft</name>
+            <label>distance of the text to the left for a left-opening dropdown menu in pixels</label>
+            <label lang="de-DE">Abstand des Textes nach links beim einem sich nach links öffnenden Dropdown-Menü in Pixeln</label>
+            <defaultValue>16</defaultValue>
+            <placeholder>16</placeholder>
         </input-field>
     </card>
 
@@ -112,18 +148,61 @@
 
         <input-field type="int">
             <name>zIndexDropdownStickyMenu</name>
-            <label>z-index value</label>
-            <label lang="de-DE">z-index - Wert</label>
+            <label>z-index value of the menu with sticky effect</label>
+            <label lang="de-DE">z-index - Wert des Menüs mit Sticky - Effekt</label>
             <defaultValue>1000</defaultValue>
             <placeholder>1000</placeholder>
         </input-field>
 
-         <input-field type="text">
+        <input-field type="colorpicker">
+            <name>backgroundColorDropdownStickyMenu</name>
+            <label>background color of the menu with sticky effect</label>
+            <label lang="de-DE">Hintergrundfarbe des Menüs mit Sticky - Effekt</label>
+            <defaultValue>#ffffff</defaultValue>
+            <placeholder>#ffffff</placeholder>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>fontColorDropdownStickyMenu</name>
+            <label>font color of the navigation menu items of the menu with sticky effect</label>
+            <label lang="de-DE">Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <defaultValue>#4a545b</defaultValue>
+            <placeholder>#4a545b</placeholder>
+        </input-field>
+
+        <input-field type="colorpicker">
+            <name>hoverFontColorDropdownStickyMenu</name>
+            <label>hover font color of the navigation menu items of the menu with sticky effect</label>
+            <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <defaultValue>#008490</defaultValue>
+            <placeholder>#008490</placeholder>
+        </input-field>
+
+        <input-field type="text">
             <name>borderBottomDropdownStickyMenu</name>
             <label>border bottom of the sticky effect of the menu</label>
             <label lang="de-DE">Unterer Rahmen des Sticky - Effekts des Menüs</label>
             <defaultValue>1px solid #bcc1c7</defaultValue>
             <placeholder>1px solid #bcc1c7</placeholder>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Home navigation menu item</title>
+        <title lang="de-DE">Navigationsmenüpunkt Home</title>
+
+        <input-field type="bool">
+            <name>showNavigationMenuItemHome</name>
+            <label>show</label>
+            <label lang="de-DE">anzeigen</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>replaceNavigationMenuItemHomeWithIcon</name>
+            <label>replace with house icon</label>
+            <label lang="de-DE">durch Haus - Icon ersetzt</label>
+            <defaultValue>false</defaultValue>
         </input-field>
     </card>
 </config>

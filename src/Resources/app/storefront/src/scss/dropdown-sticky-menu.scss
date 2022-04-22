@@ -1,9 +1,12 @@
-$sschreier-dropdownmenu-stickymenu-zindex: 1000 !default;
 $sschreier-dropdownmenu-stickymenu-transition-duration: 400 !default;
+$sschreier-dropdownmenu-stickymenu-zindex: 1000 !default;
+$sschreier-dropdownmenu-stickymenu-background-color: #ffffff !default;
+$sschreier-dropdownmenu-stickymenu-font-color: $sw-text-color !default;
+$sschreier-dropdownmenu-stickymenu-hover-font-color: $sw-color-brand-primary !default;
 $sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
 
 .main-navigation-dropdown-sticky {
-    background: #ffffff;
+    background: $sschreier-dropdownmenu-stickymenu-background-color;
     position: fixed;
     z-index: $sschreier-dropdownmenu-stickymenu-zindex;
     width: 100%;
@@ -17,5 +20,59 @@ $sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
     &.is--active {
         transform: translateY(0);
         border-bottom: $sschreier-dropdownmenu-stickymenu-border-bottom;
+    }
+}
+
+@media (min-width: 992px) {
+    .main-navigation-dropdown-sticky {
+        &.main-navigation-wrapper-dropdown {
+            .main-navigation {
+                .main-navigation-menu {
+                    > .main-navigation-link {
+                        > .main-navigation-link-text {
+                            color: $sschreier-dropdownmenu-stickymenu-font-color;
+
+                            .icon {
+                                color: $sschreier-dropdownmenu-stickymenu-font-color;
+
+                                svg {
+                                    color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                }
+                            }
+                        }
+
+                        &.active {
+                            &:hover {
+                                > .main-navigation-link-text {
+                                    color: $sschreier-dropdownmenu-stickymenu-font-color;
+
+                                    .icon {
+                                        color: $sschreier-dropdownmenu-stickymenu-font-color;
+
+                                        svg {
+                                            color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            > .main-navigation-link-text {
+                                color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+
+                                .icon {
+                                    color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+
+                                    svg {
+                                        color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierdropdownmenu",
     "description": "Dropdown Menü",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [

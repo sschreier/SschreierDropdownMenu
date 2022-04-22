@@ -17,7 +17,7 @@
         {% elseif activeViewportsDropdownStickyMenuString == "xl" %}
             {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG'" %}
         {% elseif activeViewportsDropdownStickyMenuString == "" %}
-            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}    
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}
         {% endif %}
 
         {% block layout_main_navigation_dropdownmenu_stickymenu_inner_before %}{% endblock %}
@@ -26,20 +26,23 @@
              data-dropdown-sticky-menu="true"
              data-dropdown-sticky-menu-plugin-options='{
                 "positionDropdownStickyMenuIsActive": "{{ config('SschreierDropdownMenu.config.positionDropdownStickyMenuIsActive') }}",
-                "notActiveViewportsDropdownStickyMenu": "{{ notActiveViewportsDropdownStickyMenuString }}"
+                "notActiveViewportsDropdownStickyMenu": "{{ notActiveViewportsDropdownStickyMenuString }}",
+                "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
+                "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
+                "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
              }'>
             {{ parent() }}
         </div>
-
-        {% block layout_main_navigation_dropdownmenu_stickymenu_inner_after %}{% endblock %}
     {% else %}
-        {% block layout_main_navigation_dropdownmenu_inner_before %}{% endblock %}
-
-        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}">
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}"
+             data-dropdown-menu-right="true"
+             data-dropdown-menu-right-plugin-options='{
+                "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
+                "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
+                "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
+             }'>
             {{ parent() }}
         </div>
-
-        {% block layout_main_navigation_dropdownmenu_inner_after %}{% endblock %}
     {% endif %}
 
     {% block layout_main_navigation_dropdownmenu_after %}{% endblock %}

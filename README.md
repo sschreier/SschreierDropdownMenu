@@ -8,14 +8,21 @@ A shopware 6 extension for a dropdown menu from _992 pixels_. The navigation men
  - set the min width of the dropdown menu in pixels
  - set the font size of the dropdown menu in pixels
  - set the padding of the dropdown menu
+ - open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left
+ - select the number of main navigation menu items where the dropdown menu should open to the left
+ - set the minimum number of main navigation menu items per line from which the opening of the dropdown menu to the left should be checked
+ - set the distance of the text to the left for a left-opening dropdown menu in pixels
+ - activate the sticky effect for the menu
+ - set the position in pixels from which the menu should receive the sticky effect
+ - select the viewports in which the menu should receive the sticky effect
+ - set the duration of the animation in milliseconds
+ - set the z-index value of the menu with sticky effect
+ - set the background color of the menu with sticky effect
+ - set the font color of the navigation menu items of the menu with sticky effect
+ - set the hover font color of the navigation menu items of the menu with sticky effect
+ - set the border bottom value
  - show the navigation menu item _Home_
  - replace the navigation menu item _Home_ with a house icon
- - activate the dropdown sticky menu
- - set the position from which the dropdown sticky menu should be activated
- - select the viewports in which the dropdown sticky menu should be active
- - set the duration of the animation in milliseconds
- - set the z-index value
- - set the border bottom value
 
 ## How to install the extension
 ### via console (recommended)
@@ -54,10 +61,13 @@ bin/console plugin:install --activate SschreierDropdownMenu
 
 ![default navigation menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image2.jpg)
 
-
 ### default navigation menu with dropdown menu with hover about navigation menu item  Music, Books & Games
 
 ![default navigation menu with dropdown menu with hover about navigation menu item  Music, Books & Games](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image3.jpg)
+
+### default navigation menu with dropdown menu with hover about navigation menu item women where the dropdown menu open to the left
+
+![default navigation menu with dropdown menu with hover about navigation menu item women where the dropdown menu open to the left](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image16.jpg)
 
 ### sticky navigation menu with dropdown menu
 
@@ -102,3 +112,7 @@ bin/console plugin:install --activate SschreierDropdownMenu
 ### extension configuration - area 1 part 3
 
 ![extension configuration - area 1 part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
+
+### extension configuration - area 1 part 4
+
+![extension configuration - area 1 part 4](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image15.jpg)

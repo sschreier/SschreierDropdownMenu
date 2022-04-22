@@ -1,12 +1,16 @@
 $sschreier-dropdownmenu-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2) !default;
+$sschreier-dropdownmenu-position-left: 0 !default;
 $sschreier-dropdownmenu-min-width: 275 !default;
 $sschreier-dropdownmenu-font-size: 14 !default;
 $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
+$sschreier-dropdownmenu-distance-text-to-left: 16 !default;
 
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .main-navigation-wrapper-dropdown {
         .main-navigation {
             .main-navigation-menu {
+                position: relative;
+
                 > .main-navigation-link {
                     padding: 8px 32px 8px 0;
 
@@ -116,6 +120,7 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
                     padding: $sschreier-dropdownmenu-padding;
                     margin-top: 0;
                     top: calc(100% + 1px);
+                    margin-left: $sschreier-dropdownmenu-position-left * 1px;
                     visibility: hidden;
                     opacity: 0;
                     transition: visibility 0.2s, opacity 0.2s linear;
@@ -129,7 +134,7 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
 
                             .icon {
                                 color: $sw-color-brand-primary;
-    
+
                                 svg {
                                     color: $sw-color-brand-primary;
                                 }
@@ -141,13 +146,54 @@ $sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
                             width: 100%;
 
                             .icon {
-                                float: right;
+                                &.icon-arrow-medium-left {
+                                    float: left;
 
-                                svg {
-                                    top: 2px;
+                                    svg {
+                                        top: 0;
+                                    }
+                                }
+
+                                &.icon-arrow-medium-right {
+                                    float: right;
+
+                                    svg {
+                                        top: 2px;
+                                    }
                                 }
                             }
                         }
+                    }
+
+                    &.dropdown-menu-right.dropdown-menu-level-1,
+                    &.dropdown-menu-right.dropdown-menu-level-2,
+                    &.dropdown-menu-right.dropdown-menu-level-3,
+                    &.dropdown-menu-right.dropdown-menu-level-4,
+                    &.dropdown-menu-right.dropdown-menu-level-5 {
+                        right: 100%;
+                        left: auto;
+                    }
+                }
+
+                .dropdown-menu {
+                    .icon-arrow-medium-left {
+                        display: none;
+                    }
+                }
+
+                .dropdown-menu-right {
+                    .main-navigation-link-text {
+                        &.has-no-children {
+                            margin-left: $sschreier-dropdownmenu-distance-text-to-left * 1px;
+                        }
+                    }
+
+                    .icon-arrow-medium-left {
+                        display: block;
+                    }
+
+                    .icon-arrow-medium-right {
+                        display: none;
                     }
                 }
 

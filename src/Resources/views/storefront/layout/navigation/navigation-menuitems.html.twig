@@ -13,44 +13,65 @@
             <div class="nav-link main-navigation-link
             	{% if treeItem.children|length > 0 %} dropdown{% endif %}
             	{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
+            	{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
             	{% if level > 0 %} dropright{% endif %}">
 				{% if category.type == 'folder' %}
-					<div class="main-navigation-link-text"
-						title="{{ name }}">
-						<span itemprop="name">
-							{{ name }}
-							{% if treeItem.children|length > 0 %}
-								{% if level > 0 %}
-									{% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
-								{% else %}
-									{% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
-								{% endif %}
-							{% endif %}
-						</span>
-					</div>
+                    {% block layout_main_navigation_menu_item_folder %}
+                        <div class="main-navigation-link-text
+                            {% block layout_main_navigation_menu_item_folder_link_text %}{% endblock %}"
+                            title="{{ name }}">
+                            <span itemprop="name">
+                                {{ name }}
+                                {% if treeItem.children|length > 0 %}
+                                    {% block layout_main_navigation_menu_item_folder_icon %}
+                                        {% if level > 0 %}
+                                            {% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
+                                        {% else %}
+                                            {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+                                        {% endif %}
+                                    {% endblock %}
+                                {% endif %}
+                            </span>
+                        </div>
+                    {% endblock %}
 				{% else %}
-					<a class="main-navigation-link-text
-						{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}"
-						href="{{ category_url(category) }}"
-						itemprop="url" 
-						{% if category_linknewtab(category) %}target="_blank"{% endif %}
-						title="{{ name }}">
-						<span itemprop="name">
-							{{ name }}
-							{% if treeItem.children|length > 0 %}
-								{% if level > 0 %}
-									{% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
-								{% else %}
-									{% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
-								{% endif %}
-							{% endif %}
-						</span>
-					</a>
+                    {% block layout_main_navigation_menu_item_no_folder %}
+                        <a class="main-navigation-link-text
+                            {% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
+                            {% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
+                            {% block layout_main_navigation_menu_item_no_folder_link_text %}{% endblock %}"
+                            href="{{ category_url(category) }}"
+                            itemprop="url"
+                            {% if category_linknewtab(category) %}target="_blank"{% endif %}
+                            title="{{ name }}">
+                            <span itemprop="name">
+                                {% if treeItem.children|length > 0 %}
+                                    {% block layout_main_navigation_menu_item_no_folder_icon_before %}
+                                        {% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}
+                                            {% if level > 0 %}
+                                                {% sw_icon 'arrow-medium-left' style {'pack': 'solid', 'size': 'xs' }%}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endblock %}
+                                {% endif %}
+                                {{ name }}
+                                {% if treeItem.children|length > 0 %}
+                                    {% block layout_main_navigation_menu_item_no_folder_icon_after %}
+                                        {% if level > 0 %}
+                                            {% sw_icon 'arrow-medium-right' style {'pack': 'solid', 'size': 'xs' }%}
+                                        {% else %}
+                                            {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+                                        {% endif %}
+                                    {% endblock %}
+                                {% endif %}
+                            </span>
+                        </a>
+                    {% endblock %}
 				{% endif %}
 
 				{% if treeItem.children|length > 0 %}
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
-						<div class="dropdown-menu">
+						<div class="dropdown-menu dropdown-menu-level-{{ level }}{% block layout_main_navigation_menu_item_dropdown_menu_additional_cssclasses %}{% endblock %}">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
 								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
 							{% endblock %}
