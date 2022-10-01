@@ -4,35 +4,63 @@ A shopware 6 extension for a dropdown menu from _992 pixels_. The navigation men
 
 ## Possible Configurations
  - activate the dropdown menu
- - set the shadow of the dropdown menu
- - set the min width of the dropdown menu in pixels
- - set the font size of the dropdown menu in pixels
- - set the padding of the dropdown menu
+ - set the shadow of the dropdown menu (*1)
+ - set the distance to the left of the dropdown menu in pixels (*1)
+ - set the min width of the dropdown menu in pixels (*1)
+ - set the font size of the dropdown menu in pixels (*1)
+ - set the padding of the dropdown menu (*1)
  - open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left
  - select the number of main navigation menu items where the dropdown menu should open to the left
  - set the minimum number of main navigation menu items per line from which the opening of the dropdown menu to the left should be checked
- - set the distance of the text to the left for a left-opening dropdown menu in pixels
+ - set the distance of the text to the left for a left-opening dropdown menu in pixels (*1)
  - activate the sticky effect for the menu
  - set the position in pixels from which the menu should receive the sticky effect
  - select the viewports in which the menu should receive the sticky effect
- - set the duration of the animation in milliseconds
- - set the z-index value of the menu with sticky effect
- - set the background color of the menu with sticky effect
- - set the font color of the navigation menu items of the menu with sticky effect
- - set the hover font color of the navigation menu items of the menu with sticky effect
- - set the border bottom value
+ - set the duration of the animation in milliseconds (*1)
+ - set the z-index value of the menu with sticky effect (*1)
+ - set the background color of the menu with sticky effect (*1)
+ - set the font color of the navigation menu items of the menu with sticky effect (*1)
+ - set the hover font color of the navigation menu items of the menu with sticky effect (*1)
+ - set the border bottom value (*1)
  - show the navigation menu item _Home_
  - replace the navigation menu item _Home_ with a house icon
 
+## Some changes in the settings within the configuration are not immediately visible in the frontend of the shop
+After changing settings specifically for the appearance of the dropdown menu (*1), the theme must be recompiled, for example by reassigning the theme to the sales channel in the administration:
+1. Click on the current sales channel under "Sales Channels"
+2. Click on the tab "Theme"
+3. Click on the button "Change theme"
+4. Select the current theme
+5. Click on the button "Save"
+6. Clock on the button "Change theme"
+
 ## How to install the extension
 ### via console (recommended)
-
 1. Download the latest _SschreierDropdownMenu-master.zip_.
 2. Unzip the zip file and rename the folder to _SschreierDropdownMenu_. 
 3. Move the folder to the project folder _custom/plugins/_ .
 4. Connect to the console via ssh:
 
 ```
+bin/console plugin:refresh
+bin/console plugin:install --activate SschreierDropdownMenu
+```
+
+### via composer
+1. Add the repository URL to the composer.json of the project
+```
+"repositories": [
+    ...,
+    {
+        "type": "vcs",
+        "url": "https://github.com/sschreier/SschreierDropdownMenu"
+    }
+],
+```
+
+2. Connect to the console via ssh and install the plugin source code via the command
+```
+composer require sschreier/sschreierdropdownmenu
 bin/console plugin:refresh
 bin/console plugin:install --activate SschreierDropdownMenu
 ```
@@ -101,18 +129,18 @@ bin/console plugin:install --activate SschreierDropdownMenu
 
 ![sticky navigation menu without dropdown menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image11.jpg)
 
-### extension configuration - area 1 part 1
+### extension configuration - part 1
 
-![extension configuration - area 1 part 1](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
+![extension configuration - part 1](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
 
-### extension configuration - area 1 part 2
+### extension configuration - part 2
 
-![extension configuration - area 1 part 2](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
+![extension configuration - part 2](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
 
-### extension configuration - area 1 part 3
+### extension configuration - part 3
 
-![extension configuration - area 1 part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
+![extension configuration - part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
 
-### extension configuration - area 1 part 4
+### extension configuration - part 4
 
-![extension configuration - area 1 part 4](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image15.jpg)
+![extension configuration - part 4](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image15.jpg)
