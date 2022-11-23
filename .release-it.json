@@ -1,0 +1,25 @@
+{
+    "git": {
+        "commitMessage": "v${version} release",
+        "requireCleanWorkingDir": false,
+        "addUntrackedFiles": false
+    },
+    "npm": {
+        "publish": false
+    },
+    "plugins": {
+        "@release-it/conventional-changelog": {
+            "preset": "conventionalcommits",
+            "infile": "CHANGELOG_en-GB.md",
+            "header": "# Changelog",
+            "context": {
+                "linkReferences": false,
+                "linkCompare": false
+            }
+        },
+        "@release-it/bumper": {
+            "in": "composer.json",
+            "out": "composer.json"
+        }
+    }
+}
