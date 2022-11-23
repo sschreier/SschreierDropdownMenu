@@ -1,9 +1,5 @@
 {% block layout_main_navigation_menu_items_inner %}
-	{% if page.product is defined %}
-		{% set activePath = page.product.categoryTree %}
-	{% else %}
-		{% set activePath = pageHeaderNavigationActive.path %}
-	{% endif %}
+    {% set activePath = page.header.navigation.active.path %}
 
 	{% for treeItem in navigationTreeItem %}
 		{% set category = treeItem.category %}
