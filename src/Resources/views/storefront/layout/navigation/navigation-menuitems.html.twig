@@ -1,9 +1,5 @@
 {% block layout_main_navigation_menu_items_inner %}
-	{% if page.product is defined %}
-		{% set activePath = page.product.categoryTree %}
-	{% else %}
-		{% set activePath = pageHeaderNavigationActive.path %}
-	{% endif %}
+    {% set activePath = page.header.navigation.active.path %}
 
 	{% for treeItem in navigationTreeItem %}
 		{% set category = treeItem.category %}
@@ -14,11 +10,12 @@
             	{% if treeItem.children|length > 0 %} dropdown{% endif %}
             	{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
             	{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
-            	{% if level > 0 %} dropright{% endif %}">
+            	{% if level > 0 %} dropright{% endif %}
+                {% block layout_main_navigation_menu_item_folder_link_cssclasses %}{% endblock %}">
 				{% if category.type == 'folder' %}
                     {% block layout_main_navigation_menu_item_folder %}
                         <div class="main-navigation-link-text
-                            {% block layout_main_navigation_menu_item_folder_link_text %}{% endblock %}"
+                            {% block layout_main_navigation_menu_item_folder_link_text_cssclasses %}{% endblock %}"
                             title="{{ name }}">
                             <span itemprop="name">
                                 {{ name }}
@@ -39,7 +36,7 @@
                         <a class="main-navigation-link-text
                             {% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
                             {% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
-                            {% block layout_main_navigation_menu_item_no_folder_link_text %}{% endblock %}"
+                            {% block layout_main_navigation_menu_item_no_folder_link_text_cssclasses %}{% endblock %}"
                             href="{{ category_url(category) }}"
                             itemprop="url"
                             {% if category_linknewtab(category) %}target="_blank"{% endif %}
@@ -47,7 +44,7 @@
                             <span itemprop="name">
                                 {% if treeItem.children|length > 0 %}
                                     {% block layout_main_navigation_menu_item_no_folder_icon_before %}
-                                        {% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}
+                                        {% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') or config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %}
                                             {% if level > 0 %}
                                                 {% sw_icon 'arrow-medium-left' style {'pack': 'solid', 'size': 'xs' }%}
                                             {% endif %}
@@ -71,7 +68,7 @@
 
 				{% if treeItem.children|length > 0 %}
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
-						<div class="dropdown-menu dropdown-menu-level-{{ level }}{% block layout_main_navigation_menu_item_dropdown_menu_additional_cssclasses %}{% endblock %}">
+						<div class="dropdown-menu dropdown-menu-level-{{ level }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_main_navigation_menu_item_dropdown_menu_additional_cssclasses %}{% endblock %}">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
 								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
 							{% endblock %}

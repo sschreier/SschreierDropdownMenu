@@ -22,9 +22,9 @@ export default class DropdownStickyMenuPlugin extends Plugin {
             this.initializePlugin();
         }
 
-        if(this.options.dropdownMenuMultiLineOpenLastChildToLeft) {
-            this.setDropdownMenuRight(".nav-main");
-            this.setDropdownMenuRight(".main-navigation-dropdown-sticky");
+        if(this.options.dropdownMenuMultiLineOpenLastChildToLeft && this.dropdownMenuShouldBeActive()) {
+            this.setDropdownMenuRight(".nav-main ");
+            this.setDropdownMenuRight("."+this.options.cloneDropdownMainNavigationStickyClass);
         }
     }
 
@@ -34,7 +34,9 @@ export default class DropdownStickyMenuPlugin extends Plugin {
 
         DomAccess.querySelector(this._dropdownMainNavigationClone, '.main-navigation').removeAttribute('id');
 
-        document.body.appendChild(this._dropdownMainNavigationClone);
+        if((document.querySelectorAll('.main-navigation-wrapper.'+this.options.cloneDropdownMainNavigationStickyClass)).length === 0) {
+            document.body.appendChild(this._dropdownMainNavigationClone);
+        }
     }
 
     addEventListener(){
@@ -70,9 +72,9 @@ export default class DropdownStickyMenuPlugin extends Plugin {
     }
 
     update(){
-        if(this.options.dropdownMenuMultiLineOpenLastChildToLeft) {
-            this.setDropdownMenuRight(".nav-main");
-            this.setDropdownMenuRight(".main-navigation-dropdown-sticky");
+        if(this.options.dropdownMenuMultiLineOpenLastChildToLeft && this.dropdownMenuShouldBeActive()) {
+            this.setDropdownMenuRight(".nav-main ");
+            this.setDropdownMenuRight("."+this.options.cloneDropdownMainNavigationStickyClass);
         }
 
         if(this.pluginShouldBeActive()){
@@ -102,9 +104,19 @@ export default class DropdownStickyMenuPlugin extends Plugin {
         this.initialized = true;
     }
 
+    dropdownMenuShouldBeActive(){
+        this.isBigViewport = ViewportDetection.isLG() || ViewportDetection.isXL() || ViewportDetection.isXXL();
+
+        if(!this.isBigViewport) {
+            return false;
+        }
+
+        return true;
+    }
+
     setDropdownMenuRight(selector){
-        const mainNavigationLinks = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link'),
-            dropdownMenuRemoveRight = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link .dropdown-menu');
+        const mainNavigationLinks = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link'),
+            dropdownMenuRemoveRight = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link .dropdown-menu');
 
         let topValue = 0,
             heightValue = mainNavigationLinks[0].offsetHeight,
@@ -262,7 +274,7 @@ export default class DropdownStickyMenuPlugin extends Plugin {
         for (let n = 0; n < 5; ++n) {
             if (row == n) {
                 if((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild)){
-                    const mainNavigationLinksRowLastChild = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':last-child');
+                    const mainNavigationLinksRowLastChild = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':last-child');
 
                     for (let k = 0; k < mainNavigationLinksRowLastChild.length; ++k) {
                         if (!mainNavigationLinksRowLastChild[k].classList.contains('open-to-left')) {
@@ -273,7 +285,7 @@ export default class DropdownStickyMenuPlugin extends Plugin {
 
                 if ((this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 2) || (this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 3)) {
                     if((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild)) {
-                        const mainNavigationLinksRowSecondLastChild = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(2)');
+                        const mainNavigationLinksRowSecondLastChild = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(2)');
 
                         for (let l = 0; l < mainNavigationLinksRowSecondLastChild.length; ++l) {
                             if (!mainNavigationLinksRowSecondLastChild[l].classList.contains('open-to-left')) {
@@ -285,7 +297,7 @@ export default class DropdownStickyMenuPlugin extends Plugin {
 
                 if (this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 3) {
                     if((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild)) {
-                        const mainNavigationLinksRowThirdLastChild = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(3)');
+                        const mainNavigationLinksRowThirdLastChild = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(3)');
 
                         for (let m = 0; m < mainNavigationLinksRowThirdLastChild.length; ++m) {
                             if (!mainNavigationLinksRowThirdLastChild[m].classList.contains('open-to-left')) {
@@ -297,7 +309,7 @@ export default class DropdownStickyMenuPlugin extends Plugin {
             }
         }
 
-        const dropdownMenuRight = document.querySelectorAll(selector + ' .main-navigation .main-navigation-menu > .main-navigation-link.open-to-left .dropdown-menu');
+        const dropdownMenuRight = document.querySelectorAll(selector + '.dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.open-to-left .dropdown-menu');
 
         for (let j = 0; j < dropdownMenuRight.length; ++j) {
             if(!dropdownMenuRight[j].classList.contains('dropdown-menu-right')) {

@@ -10,19 +10,27 @@
             {% set activeViewportsDropdownStickyMenuString = activeViewportsDropdownStickyMenuString ~ activeViewportDropdownStickyMenu %}
         {% endfor %}
 
-        {% if activeViewportsDropdownStickyMenuString == "lgxl" or activeViewportsDropdownStickyMenuString == "xllg" %}
+        {% if activeViewportsDropdownStickyMenuString == "lgxlxxl" or activeViewportsDropdownStickyMenuString == "lgxxlxl" or activeViewportsDropdownStickyMenuString == "xxllgxl" or activeViewportsDropdownStickyMenuString == "xllgxxl" or activeViewportsDropdownStickyMenuString == "xxlxllg" or activeViewportsDropdownStickyMenuString == "xlxxllg" %}
             {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD'" %}
-        {% elseif activeViewportsDropdownStickyMenuString == "lg" %}
-            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL'" %}
-        {% elseif activeViewportsDropdownStickyMenuString == "xl" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xxlxl" or activeViewportsDropdownStickyMenuString == "xlxxl" %}
             {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG'" %}
-        {% elseif activeViewportsDropdownStickyMenuString == "" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lgxxl" or activeViewportsDropdownStickyMenuString == "xxllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lgxl" or activeViewportsDropdownStickyMenuString == "xllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xl" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xxl" %}
             {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL', 'XXL'" %}
         {% endif %}
 
         {% block layout_main_navigation_dropdownmenu_stickymenu_inner_before %}{% endblock %}
 
-        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}"
+        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}{% if not(config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft')) %} dropdownmenu-open-last-childrens-to-left{% endif %}{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuRightAligned') %} dropdownmenu-is-right-aligned{% endif %}"
              data-dropdown-sticky-menu="true"
              data-dropdown-sticky-menu-plugin-options='{
                 "positionDropdownStickyMenuIsActive": "{{ config('SschreierDropdownMenu.config.positionDropdownStickyMenuIsActive') }}",
@@ -34,15 +42,19 @@
             {{ parent() }}
         </div>
     {% else %}
-        <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}"
-             data-dropdown-menu-right="true"
-             data-dropdown-menu-right-plugin-options='{
-                "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
-                "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
-                "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
-             }'>
+        {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
+            <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}{% if not(config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft')) %} dropdownmenu-open-last-childrens-to-left{% endif %}{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuRightAligned') %} dropdownmenu-is-right-aligned{% endif %}"
+                 data-dropdown-menu-right="true"
+                 data-dropdown-menu-right-plugin-options='{
+                    "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
+                    "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
+                    "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
+                 }'>
+                {{ parent() }}
+            </div>
+        {% else %}
             {{ parent() }}
-        </div>
+        {% endif %}
     {% endif %}
 
     {% block layout_main_navigation_dropdownmenu_after %}{% endblock %}

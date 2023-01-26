@@ -54,6 +54,20 @@
         </input-field>
 
         <input-field type="bool">
+            <name>dropdownMenuRightAligned</name>
+            <label>show menu right-aligned</label>
+            <label lang="de-DE">Menü rechtsbündig anzeigen</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>dropdownMenuAlwaysOpenToLeft</name>
+            <label>always open dropdown menus to the left (useful, for example, for a right-aligned menu with a few main navigation menu items)</label>
+            <label lang="de-DE">Dropdown-Menüs immer nach links öffnen (sinnvoll beispielsweise bei einem rechtsbündigen Menü mit wenigen Hauptmenüpunkten)</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
             <name>dropdownMenuMultiLineOpenLastChildToLeft</name>
             <label>open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left</label>
             <label lang="de-DE">Bei einem vollflächigen oder mehrzeiligen Menü die Dropdown-Menüs des jeweils letzten Hauptmenüpunktes einer Zeile nach links öffnen</label>
@@ -132,6 +146,11 @@
                     <id>xl</id>
                     <name>desktop (XL)</name>
                     <name lang="de-DE">Desktop (XL)</name>
+                </option>
+                <option>
+                    <id>xxl</id>
+                    <name>large desktop (XXL)</name>
+                    <name lang="de-DE">großer Desktop (XXL)</name>
                 </option>
             </options>
             <label>viewports in which the menu should receive the sticky effect</label>

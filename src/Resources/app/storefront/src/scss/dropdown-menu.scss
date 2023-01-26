@@ -7,6 +7,14 @@ $sschreier-dropdownmenu-distance-text-to-left: 16 !default;
 
 @media (min-width: 992px) {
     .main-navigation-wrapper-dropdown {
+        &.dropdownmenu-is-right-aligned {
+            .main-navigation {
+                .main-navigation-menu {
+                    float: right;
+                }
+            }
+        }
+
         .main-navigation {
             .main-navigation-menu {
                 position: relative;
