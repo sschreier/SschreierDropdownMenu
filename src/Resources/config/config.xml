@@ -177,6 +177,7 @@
             <name>backgroundColorDropdownStickyMenu</name>
             <label>background color of the menu with sticky effect</label>
             <label lang="de-DE">Hintergrundfarbe des Menüs mit Sticky - Effekt</label>
+            <css>sschreier-background-color-dropdown-sticky-menu</css>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
         </input-field>
@@ -185,6 +186,7 @@
             <name>fontColorDropdownStickyMenu</name>
             <label>font color of the navigation menu items of the menu with sticky effect</label>
             <label lang="de-DE">Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <css>sschreier-font-color-dropdown-sticky-menu</css>
             <defaultValue>#4a545b</defaultValue>
             <placeholder>#4a545b</placeholder>
         </input-field>
@@ -193,6 +195,7 @@
             <name>hoverFontColorDropdownStickyMenu</name>
             <label>hover font color of the navigation menu items of the menu with sticky effect</label>
             <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <css>sschreier-hover-font-color-dropdown-sticky-menu</css>
             <defaultValue>#008490</defaultValue>
             <placeholder>#008490</placeholder>
         </input-field>

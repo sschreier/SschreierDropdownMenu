@@ -1,9 +1,9 @@
-$sschreier-dropdownmenu-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2) !default;
-$sschreier-dropdownmenu-position-left: 0 !default;
-$sschreier-dropdownmenu-min-width: 275 !default;
-$sschreier-dropdownmenu-font-size: 14 !default;
-$sschreier-dropdownmenu-padding: 8px 20px 8px 20px !default;
-$sschreier-dropdownmenu-distance-text-to-left: 16 !default;
+$sschreier-dropdown-menu-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2) !default;
+$sschreier-dropdown-menu-position-left: 0 !default;
+$sschreier-dropdown-menu-min-width: 275 !default;
+$sschreier-dropdown-menu-font-size: 14 !default;
+$sschreier-dropdown-menu-padding: 8px 20px 8px 20px !default;
+$sschreier-dropdown-menu-distance-text-to-left: 16 !default;
 
 @media (min-width: 992px) {
     .main-navigation-wrapper-dropdown {
@@ -24,7 +24,7 @@ $sschreier-dropdownmenu-distance-text-to-left: 16 !default;
 
                     .dropdown-menu {
                         .main-navigation-link-text {
-                            font-size: $sschreier-dropdownmenu-font-size * 1px;
+                            font-size: $sschreier-dropdown-menu-font-size * 1px;
                         }
                     }
 
@@ -124,17 +124,17 @@ $sschreier-dropdownmenu-distance-text-to-left: 16 !default;
             .dropdown {
                 > .dropdown-menu {
                     display: block;
-                    min-width: $sschreier-dropdownmenu-min-width * 1px;
-                    padding: $sschreier-dropdownmenu-padding;
+                    min-width: $sschreier-dropdown-menu-min-width * 1px;
+                    padding: $sschreier-dropdown-menu-padding;
                     margin-top: 0;
                     top: calc(100% + 1px);
-                    margin-left: $sschreier-dropdownmenu-position-left * 1px;
+                    margin-left: $sschreier-dropdown-menu-position-left * 1px;
                     visibility: hidden;
                     opacity: 0;
                     transition: visibility 0.2s, opacity 0.2s linear;
                     border-radius: 0;
                     border: none;
-                    box-shadow: $sschreier-dropdownmenu-box-shadow;
+                    box-shadow: $sschreier-dropdown-menu-box-shadow;
 
                     .main-navigation-link-text {
                         &:hover {
@@ -192,7 +192,7 @@ $sschreier-dropdownmenu-distance-text-to-left: 16 !default;
                 .dropdown-menu-right {
                     .main-navigation-link-text {
                         &.has-no-children {
-                            margin-left: $sschreier-dropdownmenu-distance-text-to-left * 1px;
+                            margin-left: $sschreier-dropdown-menu-distance-text-to-left * 1px;
                         }
                     }
 

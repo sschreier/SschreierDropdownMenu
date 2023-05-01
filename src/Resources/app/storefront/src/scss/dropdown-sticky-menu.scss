@@ -1,25 +1,25 @@
-$sschreier-dropdownmenu-stickymenu-transition-duration: 400 !default;
-$sschreier-dropdownmenu-stickymenu-zindex: 1000 !default;
-$sschreier-dropdownmenu-stickymenu-background-color: #ffffff !default;
-$sschreier-dropdownmenu-stickymenu-font-color: $sw-text-color !default;
-$sschreier-dropdownmenu-stickymenu-hover-font-color: $sw-color-brand-primary !default;
-$sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
+$sschreier-transition-duration-dropdown-sticky-menu: 400 !default;
+$sschreier-z-index-dropdown-sticky-menu: 1000 !default;
+$sschreier-background-color-dropdown-sticky-menu: #ffffff !default;
+$sschreier-font-color-dropdown-sticky-menu: $sw-text-color !default;
+$sschreier-hover-font-color-dropdown-sticky-menu: $sw-color-brand-primary !default;
+$sschreier-border-bottom-dropdown-sticky-menu: 1px solid #bcc1c7 !default;
 
 .main-navigation-dropdown-sticky {
-    background: $sschreier-dropdownmenu-stickymenu-background-color;
+    background: $sschreier-background-color-dropdown-sticky-menu;
     position: fixed;
-    z-index: $sschreier-dropdownmenu-stickymenu-zindex;
+    z-index: $sschreier-z-index-dropdown-sticky-menu;
     width: 100%;
     top: 0;
     transition-delay: 0s;
     transition-property: transform;
-    transition-duration: $sschreier-dropdownmenu-stickymenu-transition-duration * 1ms;
+    transition-duration: $sschreier-transition-duration-dropdown-sticky-menu * 1ms;
     transition-timing-function: ease-in-out;
     transform: translateY(-100%);
 
     &.is--active {
         transform: translateY(0);
-        border-bottom: $sschreier-dropdownmenu-stickymenu-border-bottom;
+        border-bottom: $sschreier-border-bottom-dropdown-sticky-menu;
     }
 }
 
@@ -30,13 +30,13 @@ $sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
                 .main-navigation-menu {
                     > .main-navigation-link {
                         > .main-navigation-link-text {
-                            color: $sschreier-dropdownmenu-stickymenu-font-color;
+                            color: $sschreier-font-color-dropdown-sticky-menu;
 
                             .icon {
-                                color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                color: $sschreier-font-color-dropdown-sticky-menu;
 
                                 svg {
-                                    color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                    color: $sschreier-font-color-dropdown-sticky-menu;
                                 }
                             }
                         }
@@ -44,13 +44,13 @@ $sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
                         &.active {
                             &:hover {
                                 > .main-navigation-link-text {
-                                    color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                    color: $sschreier-font-color-dropdown-sticky-menu;
 
                                     .icon {
-                                        color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                        color: $sschreier-font-color-dropdown-sticky-menu;
 
                                         svg {
-                                            color: $sschreier-dropdownmenu-stickymenu-font-color;
+                                            color: $sschreier-font-color-dropdown-sticky-menu;
                                         }
                                     }
                                 }
@@ -59,13 +59,13 @@ $sschreier-dropdownmenu-stickymenu-border-bottom: 1px solid #bcc1c7 !default;
 
                         &:hover {
                             > .main-navigation-link-text {
-                                color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+                                color: $sschreier-hover-font-color-dropdown-sticky-menu;
 
                                 .icon {
-                                    color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+                                    color: $sschreier-hover-font-color-dropdown-sticky-menu;
 
                                     svg {
-                                        color: $sschreier-dropdownmenu-stickymenu-hover-font-color;
+                                        color: $sschreier-hover-font-color-dropdown-sticky-menu;
                                     }
                                 }
                             }
