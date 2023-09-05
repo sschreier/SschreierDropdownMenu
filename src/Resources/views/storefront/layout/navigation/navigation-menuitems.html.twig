@@ -10,7 +10,7 @@
             	{% if treeItem.children|length > 0 %} dropdown{% endif %}
             	{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
             	{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
-            	{% if level > 0 %} dropright{% endif %}
+            	{% if level > 0 %} dropend{% endif %}
                 {% block layout_main_navigation_menu_item_folder_link_cssclasses %}{% endblock %}">
 				{% if category.type == 'folder' %}
                     {% block layout_main_navigation_menu_item_folder %}
