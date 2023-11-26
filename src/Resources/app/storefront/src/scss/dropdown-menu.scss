@@ -6,6 +6,11 @@ $sschreier-dropdown-menu-padding: 8px 20px 8px 20px !default;
 $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
 
 @media (min-width: 992px) {
+    .dropdown-menu-right {
+        right: 0;
+        left: auto;
+    }
+
     .main-navigation-wrapper-dropdown {
         &.dropdownmenu-is-right-aligned {
             .main-navigation {
