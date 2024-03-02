@@ -17,7 +17,7 @@
                         <div class="main-navigation-link-text
                             {% block layout_main_navigation_menu_item_folder_link_text_cssclasses %}{% endblock %}"
                             title="{{ name }}">
-                            <span itemprop="name">
+                            <span class="main-navigation-link-text-inner" itemprop="name">
                                 {{ name }}
                                 {% if treeItem.children|length > 0 %}
                                     {% block layout_main_navigation_menu_item_folder_icon %}
@@ -41,7 +41,7 @@
                             itemprop="url"
                             {% if category_linknewtab(category) %}target="_blank"{% endif %}
                             title="{{ name }}">
-                            <span itemprop="name">
+                            <span class="main-navigation-link-text-inner" itemprop="name">
                                 {% if treeItem.children|length > 0 %}
                                     {% block layout_main_navigation_menu_item_no_folder_icon_before %}
                                         {% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') or config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %}

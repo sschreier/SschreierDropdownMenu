@@ -35,6 +35,17 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
 
                     > .main-navigation-link-text {
                         padding: 0 0 3px 0;
+
+                        .main-navigation-link-text-inner {
+                            padding-right: 20px;
+
+                            span {
+                                &.icon {
+                                    position: absolute;
+                                    margin-left: 3px;
+                                }
+                            }
+                        }
                     }
 
                     &.active {
