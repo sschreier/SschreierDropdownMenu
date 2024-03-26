@@ -196,8 +196,8 @@
             <label>hover font color of the navigation menu items of the menu with sticky effect</label>
             <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
             <css>sschreier-hover-font-color-dropdown-sticky-menu</css>
-            <defaultValue>#008490</defaultValue>
-            <placeholder>#008490</placeholder>
+            <defaultValue>#0b539b</defaultValue>
+            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="text">
