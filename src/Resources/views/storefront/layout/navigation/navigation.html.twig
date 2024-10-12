@@ -86,7 +86,7 @@
     {% block layout_main_navigation_menu_items_dropdownmenu_before %}{% endblock %}
 
     {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
-        {% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: page.header.navigation.tree, level: 0, pageHeaderNavigationActive: page.header.navigation.active} only %}
+        {% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {activePath: page.header.navigation.active.path, navigationTreeItem: page.header.navigation.tree, level: 0, pageHeaderNavigationActive: page.header.navigation.active} only %}
     {% else %}
         {{ parent() }}
     {% endif %}

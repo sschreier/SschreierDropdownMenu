@@ -1,6 +1,4 @@
 {% block layout_main_navigation_menu_items_inner %}
-    {% set activePath = page.header.navigation.active.path %}
-
 	{% for treeItem in navigationTreeItem %}
 		{% set category = treeItem.category %}
 		{% set name = category.translated.name %}
@@ -70,7 +68,7 @@
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
 						<div class="dropdown-menu dropdown-menu-level-{{ level }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_main_navigation_menu_item_dropdown_menu_additional_cssclasses %}{% endblock %}">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
-								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
+								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {activePath: activePath, navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
 							{% endblock %}
 						</div>
 					{% endblock %}
