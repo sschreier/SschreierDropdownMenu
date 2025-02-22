@@ -2,18 +2,20 @@
 	{% for treeItem in navigationTreeItem %}
 		{% set category = treeItem.category %}
 		{% set name = category.translated.name %}
+        {% set active = '' %}
+        {% if category.id == shopware.navigation.id or category.id in activePath %}
+            {% set active = 'active' %}
+        {% endif %}
 
 		{% block layout_main_navigation_menu_item %}
             <div class="nav-link main-navigation-link
-            	{% if treeItem.children|length > 0 %} dropdown{% endif %}
-            	{% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
-            	{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
+            	nav-item-{{ category.id}} {{ active }}
+            	{% if treeItem.children|length > 0 %} dropdown has-children{% else %} has-no-children{% endif %}
             	{% if level > 0 %} dropend{% endif %}
                 {% block layout_main_navigation_menu_item_folder_link_cssclasses %}{% endblock %}">
 				{% if category.type == 'folder' %}
                     {% block layout_main_navigation_menu_item_folder %}
-                        <div class="main-navigation-link-text
-                            {% block layout_main_navigation_menu_item_folder_link_text_cssclasses %}{% endblock %}"
+                        <div class="main-navigation-link-text{% block layout_main_navigation_menu_item_folder_link_text_cssclasses %}{% endblock %}"
                             title="{{ name }}">
                             <span class="main-navigation-link-text-inner" itemprop="name">
                                 {{ name }}
@@ -31,8 +33,7 @@
                     {% endblock %}
 				{% else %}
                     {% block layout_main_navigation_menu_item_no_folder %}
-                        <a class="main-navigation-link-text
-                            {% if category.id == pageHeaderNavigationActive.id or category.id in activePath %} active{% endif %}
+                        <a class="main-navigation-link-text nav-item-{{ category.id}} {{ active }}
                             {% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}
                             {% block layout_main_navigation_menu_item_no_folder_link_text_cssclasses %}{% endblock %}"
                             href="{{ category_url(category) }}"
@@ -49,7 +50,9 @@
                                         {% endif %}
                                     {% endblock %}
                                 {% endif %}
+
                                 {{ name }}
+
                                 {% if treeItem.children|length > 0 %}
                                     {% block layout_main_navigation_menu_item_no_folder_icon_after %}
                                         {% if level > 0 %}
@@ -68,7 +71,11 @@
 					{% block layout_main_navigation_menu_item_dropdown_menu %}
 						<div class="dropdown-menu dropdown-menu-level-{{ level }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_main_navigation_menu_item_dropdown_menu_additional_cssclasses %}{% endblock %}">
 							{% block layout_main_navigation_menu_item_dropdown_menu_include %}
-								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {activePath: activePath, navigationTreeItem: treeItem.children, level: level+1, pageHeaderNavigationActive: pageHeaderNavigationActive} only %}
+								{% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {
+                                    activePath: activePath,
+                                    navigationTreeItem: treeItem.children,
+                                    level: level+1
+                                } %}
 							{% endblock %}
 						</div>
 					{% endblock %}

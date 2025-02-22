@@ -1,7 +1,6 @@
-import Plugin from 'src/plugin-system/plugin.class';
 import ViewportDetection from 'src/helper/viewport-detection.helper';
 
-export default class DropdownMenuRightPlugin extends Plugin {
+export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
     static options = {
         dropdownMenuMultiLineOpenLastChildToLeft: false,
         dropdownMenuNumberMainNavigationMenuItemsOpenToLeft: 1,
@@ -18,7 +17,7 @@ export default class DropdownMenuRightPlugin extends Plugin {
     }
 
     subscribeViewportEvent(){
-        document.$emitter.subscribe('Viewport/hasChanged', this.update, {scope: this});
+        document.$emitter.subscribe('Viewport/hasChanged', this.update, { scope: this });
     }
 
     update(){
@@ -30,11 +29,7 @@ export default class DropdownMenuRightPlugin extends Plugin {
     dropdownMenuShouldBeActive(){
         this.isBigViewport = ViewportDetection.isLG() || ViewportDetection.isXL() || ViewportDetection.isXXL();
 
-        if (!this.isBigViewport) {
-            return false;
-        }
-
-        return true;
+        return this.isBigViewport;
     }
 
     setDropdownMenuRight(){

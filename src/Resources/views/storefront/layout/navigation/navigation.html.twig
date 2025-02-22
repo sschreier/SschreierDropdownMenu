@@ -39,8 +39,14 @@
                 "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
                 "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
              }'>
+            {% block layout_main_navigation_dropdownmenu_stickymenu_inner_div_before %}{% endblock %}
+
             {{ parent() }}
+
+            {% block layout_main_navigation_dropdownmenu_stickymenu_inner_div_after %}{% endblock %}
         </div>
+
+        {% block layout_main_navigation_dropdownmenu_stickymenu_inner_after %}{% endblock %}
     {% else %}
         {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
             <div class="main-navigation-wrapper main-navigation-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}{% if not(config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft')) %} dropdownmenu-open-last-childrens-to-left{% endif %}{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuRightAligned') %} dropdownmenu-is-right-aligned{% endif %}"
@@ -50,10 +56,18 @@
                     "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
                     "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
                  }'>
+                {% block layout_main_navigation_dropdownmenu_no_stickymenu_inner_before %}{% endblock %}
+
                 {{ parent() }}
+
+                {% block layout_main_navigation_dropdownmenu_no_stickymenu_inner_after %}{% endblock %}
             </div>
         {% else %}
+            {% block layout_main_navigation_dropdownmenu_default_before %}{% endblock %}
+
             {{ parent() }}
+
+            {% block layout_main_navigation_dropdownmenu_default_after %}{% endblock %}
         {% endif %}
     {% endif %}
 
@@ -65,16 +79,23 @@
 
     {% if config('SschreierDropdownMenu.config.showNavigationMenuItemHome') %}
         {% if config('SschreierDropdownMenu.config.replaceNavigationMenuItemHomeWithIcon') %}
-             <a class="nav-link main-navigation-link{% if controllerAction is same as('home') %} active{% endif %} home-link"
-                href="{{ path('frontend.home.page') }}"
-                itemprop="url"
-                title="{{ homeLabel|striptags }}">
-                <div class="main-navigation-link-text">
-                    <span class="icon-home-container">{% sw_icon 'home' %}</span>
-                </div>
-            </a>
+            {% block layout_main_navigation_menu_home_dropdownmenu_custom %}
+                <a class="nav-link main-navigation-link nav-item-{{ context.salesChannel.navigationCategoryId }} {% if controllerAction is same as('home') %} active{% endif %} home-link"
+                   href="{{ path('frontend.home.page') }}"
+                   itemprop="url"
+                   title="{{ homeLabel|striptags }}">
+                    <div class="main-navigation-link-text">
+                        <span class="icon-home-container">{% sw_icon 'home' %}</span>
+                        <span class="d-none" itemprop="name">{{ homeLabel|sw_sanitize }}</span>
+                    </div>
+                </a>
+            {% endblock %}
         {% else %}
+            {% block layout_main_navigation_menu_home_dropdownmenu_default_before %}{% endblock %}
+
             {{ parent() }}
+
+            {% block layout_main_navigation_menu_home_dropdownmenu_default_after %}{% endblock %}
         {% endif %}
     {% else %}
     {% endif %}
@@ -86,9 +107,21 @@
     {% block layout_main_navigation_menu_items_dropdownmenu_before %}{% endblock %}
 
     {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
-        {% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {activePath: page.header.navigation.active.path, navigationTreeItem: page.header.navigation.tree, level: 0, pageHeaderNavigationActive: page.header.navigation.active} only %}
+        {% block layout_main_navigation_menu_items_dropdownmenu_custom %}
+            {% set activePath = '|' ~ shopware.navigation.pathIdList|join('|') ~ '|' %}
+
+            {% sw_include '@SschreierDropdownMenu/storefront/layout/navigation/navigation-menuitems.html.twig' with {
+                activePath: activePath,
+                navigationTreeItem: page.header.navigation.tree,
+                level: 0
+            } %}
+        {% endblock %}
     {% else %}
+        {% block layout_main_navigation_menu_items_dropdownmenu_default_before %}{% endblock %}
+
         {{ parent() }}
+
+        {% block layout_main_navigation_menu_items_dropdownmenu_default_after %}{% endblock %}
     {% endif %}
 
     {% block layout_main_navigation_menu_items_dropdownmenu_after %}{% endblock %}
@@ -98,8 +131,13 @@
     {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_before %}{% endblock %}
 
     {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
+        {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_custom %}{% endblock %}
     {% else %}
+        {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_default_before %}{% endblock %}
+
         {{ parent() }}
+
+        {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_default_after %}{% endblock %}
     {% endif %}
 
     {% block layout_main_navigation_menu_flyout_wrapper_dropdownmenu_after %}{% endblock %}

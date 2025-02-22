@@ -1,8 +1,7 @@
-import Plugin from 'src/plugin-system/plugin.class';
 import DomAccess from 'src/helper/dom-access.helper';
 import ViewportDetection from 'src/helper/viewport-detection.helper';
 
-export default class DropdownStickyMenuPlugin extends Plugin {
+export default class DropdownStickyMenuPlugin extends window.PluginBaseClass {
     static options = {
         cloneDropdownMainNavigationStickyClass: 'main-navigation-dropdown-sticky',
         positionDropdownStickyMenuIsActive: 120,
@@ -68,7 +67,7 @@ export default class DropdownStickyMenuPlugin extends Plugin {
     }
 
     subscribeViewportEvent(){
-        document.$emitter.subscribe('Viewport/hasChanged', this.update, {scope: this});
+        document.$emitter.subscribe('Viewport/hasChanged', this.update, { scope: this });
     }
 
     update(){
@@ -78,22 +77,18 @@ export default class DropdownStickyMenuPlugin extends Plugin {
         }
 
         if (this.pluginShouldBeActive()) {
-            if(this.initialized) return;
+            if (this.initialized) return;
 
             this.initializePlugin();
         } else {
-            if(!this.initialized) return;
+            if (!this.initialized) return;
 
             this.destroy();
         }
     }
 
-    pluginShouldBeActive(){
-        if ((this.options.notActiveViewportsDropdownStickyMenu).includes(ViewportDetection.getCurrentViewport())) {
-            return false;
-        }
-
-        return true;
+    pluginShouldBeActive() {
+        return !(this.options.notActiveViewportsDropdownStickyMenu).includes(ViewportDetection.getCurrentViewport());
     }
 
     initializePlugin() {
@@ -104,14 +99,10 @@ export default class DropdownStickyMenuPlugin extends Plugin {
         this.initialized = true;
     }
 
-    dropdownMenuShouldBeActive(){
+    dropdownMenuShouldBeActive() {
         this.isBigViewport = ViewportDetection.isLG() || ViewportDetection.isXL() || ViewportDetection.isXXL();
 
-        if (!this.isBigViewport) {
-            return false;
-        }
-
-        return true;
+        return this.isBigViewport;
     }
 
     setDropdownMenuRight(selector){

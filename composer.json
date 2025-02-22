@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierdropdownmenu",
     "description": "Dropdown Menü",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "type": "shopware-platform-plugin",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -11,8 +11,8 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.6.0",
-        "shopware/storefront": "~6.6.0"
+        "shopware/core": "~6.6.10",
+        "shopware/storefront": "~6.6.10"
     },
     "extra": {
         "shopware-plugin-class": "Sschreier\\DropdownMenu\\SschreierDropdownMenu",
