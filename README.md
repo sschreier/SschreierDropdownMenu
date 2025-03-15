@@ -1,6 +1,6 @@
-# A Dropdown Menu for Shopware 6
+# An extension for a dropdown menu for Shopware 6
 
-A shopware 6 extension for a dropdown menu from _992 pixels_. The navigation menu item _Home_ can also be hidden or can be replaced by a house icon.
+An extension for a dropdown menu from _992 pixels_. The navigation menu item _Home_ can also be hidden or can be replaced by a house icon.
 
 ## Possible Configurations
  - activate the dropdown menu
@@ -34,7 +34,7 @@ After changing settings specifically for the appearance of the dropdown menu (*1
 3. Click on the button "Save"
 
 ## How to install the extension
-### via console (recommended)
+### via zip and console (recommended)
 1. Download the latest _SschreierDropdownMenu-master.zip_.
 2. Unzip the zip file and rename the folder to _SschreierDropdownMenu_. 
 3. Move the folder to the project folder _custom/plugins/_ .
@@ -57,7 +57,15 @@ bin/console plugin:install --activate SschreierDropdownMenu
 ],
 ```
 
-2. Connect to the console via ssh and install the plugin source code via the command
+2. Connect to the console via ssh and install the plugin via the command
+```
+composer require sschreier/sschreierdropdownmenu
+bin/console plugin:refresh
+bin/console plugin:install --activate SschreierDropdownMenu
+```
+
+### via https://packagist.org
+- Connect to the console via ssh and install the plugin via the command
 ```
 composer require sschreier/sschreierdropdownmenu
 bin/console plugin:refresh

@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierdropdownmenu",
-    "description": "Dropdown Menü",
-    "version": "1.2.4",
+    "description": "dropdown menu",
+    "version": "1.2.5",
     "type": "shopware-platform-plugin",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -20,7 +20,7 @@
         "copyright": "Sebastian Schreier",
         "label": {
             "de-DE": "Dropdown Menü",
-            "en-GB": "Dropdown Menu"
+            "en-GB": "dropdown menu"
         },
         "description": {
             "de-DE": "Eine Erweiterung für ein Dropdown Menü ab 992 Pixel, bei dem auch der Navigationsmenüpunkt Home ausgeblendet oder durch ein Haus - Icon ersetzt werden kann.",
