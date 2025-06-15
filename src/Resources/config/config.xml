@@ -3,54 +3,14 @@
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
 
     <card>
-        <title>Dropdown Menu</title>
-        <title lang="de-DE">Dropdown Menü</title>
+        <title>dropdown menu</title>
+        <title lang="de-DE">Dropdown-Menü</title>
 
         <input-field type="bool">
             <name>dropdownMenuIsActive</name>
-            <label>activate the dropdown menu</label>
-            <label lang="de-DE">Dropdown Menü aktivieren</label>
+            <label>activate</label>
+            <label lang="de-DE">aktivieren</label>
             <defaultValue>true</defaultValue>
-        </input-field>
-
-        <input-field type="text">
-            <name>dropdownMenuBoxShadow</name>
-            <label>shadow of the dropdown menu</label>
-            <label lang="de-DE">Schatten des Dropdown Menüs</label>
-            <defaultValue>5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2)</defaultValue>
-            <placeholder>5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2)</placeholder>
-        </input-field>
-
-        <input-field type="int">
-            <name>dropdownMenuPositionLeft</name>
-            <label>distance to the left of the dropdown menu in pixels</label>
-            <label lang="de-DE">Abstand nach links des Dropdown-Menüs in Pixeln</label>
-            <defaultValue>0</defaultValue>
-            <placeholder>0</placeholder>
-        </input-field>
-
-        <input-field type="int">
-            <name>dropdownMenuMinWidth</name>
-            <label>min width of the dropdown menu in pixels</label>
-            <label lang="de-DE">Mindestbreite des Dropdown Menüs in Pixeln</label>
-            <defaultValue>275</defaultValue>
-            <placeholder>275</placeholder>
-        </input-field>
-
-        <input-field type="int">
-            <name>dropdownMenuFontSize</name>
-            <label>font size of the dropdown menu in pixels</label>
-            <label lang="de-DE">Schriftgröße des Dropdown Menüs in Pixeln</label>
-            <defaultValue>14</defaultValue>
-            <placeholder>14</placeholder>
-        </input-field>
-
-        <input-field type="text">
-            <name>dropdownMenuPadding</name>
-            <label>padding of the dropdown menu</label>
-            <label lang="de-DE">Innenabstand des Dropdown Menüs</label>
-            <defaultValue>8px 20px 8px 20px</defaultValue>
-            <placeholder>8px 20px 8px 20px</placeholder>
         </input-field>
 
         <input-field type="bool">
@@ -59,25 +19,75 @@
             <label lang="de-DE">Menü rechtsbündig anzeigen</label>
             <defaultValue>false</defaultValue>
         </input-field>
+    </card>
+
+    <card>
+        <title>design of the dropdown menu</title>
+        <title lang="de-DE">Gestaltung des Dropdown-Menüs</title>
+
+        <input-field type="text">
+            <name>dropdownMenuBoxShadow</name>
+            <label>shadow of the menu</label>
+            <label lang="de-DE">Schatten des Menüs</label>
+            <defaultValue>5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2)</defaultValue>
+            <placeholder>5px 10px 16px rgba(0, 0, 0, 0.2), -5px 10px 16px rgba(0, 0, 0, 0.2)</placeholder>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuPositionLeft</name>
+            <label>distance to the left in pixels</label>
+            <label lang="de-DE">Abstand nach links in Pixeln</label>
+            <defaultValue>0</defaultValue>
+            <placeholder>0</placeholder>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuMinWidth</name>
+            <label>min width in pixels</label>
+            <label lang="de-DE">Mindestbreite in Pixeln</label>
+            <defaultValue>275</defaultValue>
+            <placeholder>275</placeholder>
+        </input-field>
+
+        <input-field type="int">
+            <name>dropdownMenuFontSize</name>
+            <label>font size in pixels</label>
+            <label lang="de-DE">Schriftgröße in Pixeln</label>
+            <defaultValue>14</defaultValue>
+            <placeholder>14</placeholder>
+        </input-field>
+
+        <input-field type="text">
+            <name>dropdownMenuPadding</name>
+            <label>padding</label>
+            <label lang="de-DE">Innenabstand</label>
+            <defaultValue>8px 20px 8px 20px</defaultValue>
+            <placeholder>8px 20px 8px 20px</placeholder>
+        </input-field>
+    </card>
+
+    <card>
+        <title>open dropdown menus to the left</title>
+        <title lang="de-DE">Dropdown-Menü nach links öffnen</title>
 
         <input-field type="bool">
             <name>dropdownMenuAlwaysOpenToLeft</name>
-            <label>always open dropdown menus to the left (useful, for example, for a right-aligned menu with a few main navigation menu items)</label>
-            <label lang="de-DE">Dropdown-Menüs immer nach links öffnen (sinnvoll beispielsweise bei einem rechtsbündigen Menü mit wenigen Hauptmenüpunkten)</label>
+            <label>always open to the left (useful, for example, for a right-aligned menu with a few main navigation menu items)</label>
+            <label lang="de-DE">immer nach links öffnen (sinnvoll beispielsweise bei einem rechtsbündigen Menü mit wenigen Hauptmenüpunkten)</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="bool">
             <name>dropdownMenuMultiLineOpenLastChildToLeft</name>
             <label>open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left</label>
-            <label lang="de-DE">Bei einem vollflächigen oder mehrzeiligen Menü die Dropdown-Menüs des jeweils letzten Hauptmenüpunktes einer Zeile nach links öffnen</label>
+            <label lang="de-DE">bei einem vollflächigen oder mehrzeiligen Menü die Dropdown-Menüs des jeweils letzten Hauptmenüpunktes einer Zeile nach links öffnen</label>
             <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="single-select">
             <name>dropdownMenuNumberMainNavigationMenuItemsOpenToLeft</name>
             <label>number of main navigation menu items where the dropdown menu should open to the left</label>
-            <label lang="de-DE">Anzahl an Hauptmenüpunkten, bei denen das Dropdown-Menü nach links geöffnet werden soll</label>
+            <label lang="de-DE">Anzahl an Hauptmenüpunkten, ab denen das Dropdown-Menü nach links geöffnet werden soll</label>
             <options>
                 <option>
                     <id>1</id>
@@ -109,21 +119,21 @@
         <input-field type="int">
             <name>dropdownMenuDistanceTextToLeft</name>
             <label>distance of the text to the left for a left-opening dropdown menu in pixels</label>
-            <label lang="de-DE">Abstand des Textes nach links beim einem sich nach links öffnenden Dropdown-Menü in Pixeln</label>
+            <label lang="de-DE">Abstand des Textes nach links bei einem sich nach links öffnenden Dropdown-Menü in Pixeln</label>
             <defaultValue>16</defaultValue>
             <placeholder>16</placeholder>
         </input-field>
     </card>
 
     <card>
-        <title>Sticky effect of the menu</title>
+        <title>sticky effect of the menu</title>
         <title lang="de-DE">Sticky - Effekt des Menüs</title>
 
         <input-field type="bool">
             <name>dropdownStickyMenuIsActive</name>
-            <label>activate the sticky effect for the menu</label>
-            <label lang="de-DE">Sticky - Effekt für das Menü aktivieren</label>
-            <defaultValue>true</defaultValue>
+            <label>activate</label>
+            <label lang="de-DE">aktivieren</label>
+            <defaultValue>false</defaultValue>
         </input-field>
 
         <input-field type="int">
@@ -156,27 +166,32 @@
             <label>viewports in which the menu should receive the sticky effect</label>
             <label lang="de-DE">Auflösungen, in denen das Menü den Sticky - Effekt erhalten soll</label>
         </input-field>
+    </card>
+
+    <card>
+        <title>design of the sticky effect for the menu</title>
+        <title lang="de-DE">Gestaltung des Sticky - Effekts für das Menü</title>
 
         <input-field type="int">
             <name>transitionDurationDropdownStickyMenu</name>
-            <label>duration of the animation of the sticky effect in milliseconds</label>
-            <label lang="de-DE">Dauer der Animation des Sticky - Effekts in Millisekunden</label>
+            <label>duration of the animation in milliseconds</label>
+            <label lang="de-DE">Dauer der Animation in Millisekunden</label>
             <defaultValue>400</defaultValue>
             <placeholder>400</placeholder>
         </input-field>
 
         <input-field type="int">
             <name>zIndexDropdownStickyMenu</name>
-            <label>z-index value of the menu with sticky effect</label>
-            <label lang="de-DE">z-index - Wert des Menüs mit Sticky - Effekt</label>
+            <label>z-index value</label>
+            <label lang="de-DE">z-index - Wert</label>
             <defaultValue>1000</defaultValue>
             <placeholder>1000</placeholder>
         </input-field>
 
         <input-field type="colorpicker">
             <name>backgroundColorDropdownStickyMenu</name>
-            <label>background color of the menu with sticky effect</label>
-            <label lang="de-DE">Hintergrundfarbe des Menüs mit Sticky - Effekt</label>
+            <label>background color</label>
+            <label lang="de-DE">Hintergrundfarbe</label>
             <css>sschreier-background-color-dropdown-sticky-menu</css>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
@@ -184,8 +199,8 @@
 
         <input-field type="colorpicker">
             <name>fontColorDropdownStickyMenu</name>
-            <label>font color of the navigation menu items of the menu with sticky effect</label>
-            <label lang="de-DE">Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <label>font color of the navigation menu items</label>
+            <label lang="de-DE">Schriftfarbe der Navigationsmenüpunkte</label>
             <css>sschreier-font-color-dropdown-sticky-menu</css>
             <defaultValue>#4a545b</defaultValue>
             <placeholder>#4a545b</placeholder>
@@ -193,8 +208,8 @@
 
         <input-field type="colorpicker">
             <name>hoverFontColorDropdownStickyMenu</name>
-            <label>hover font color of the navigation menu items of the menu with sticky effect</label>
-            <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte des Menüs mit Sticky - Effekt</label>
+            <label>hover font color of the navigation menu items</label>
+            <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte</label>
             <css>sschreier-hover-font-color-dropdown-sticky-menu</css>
             <defaultValue>#0b539b</defaultValue>
             <placeholder>#0b539b</placeholder>
@@ -202,15 +217,15 @@
 
         <input-field type="text">
             <name>borderBottomDropdownStickyMenu</name>
-            <label>border bottom of the sticky effect of the menu</label>
-            <label lang="de-DE">Unterer Rahmen des Sticky - Effekts des Menüs</label>
+            <label>bottom border</label>
+            <label lang="de-DE">Unterer Rahmen</label>
             <defaultValue>1px solid #bcc1c7</defaultValue>
             <placeholder>1px solid #bcc1c7</placeholder>
         </input-field>
     </card>
 
     <card>
-        <title>Home navigation menu item</title>
+        <title>home navigation menu item</title>
         <title lang="de-DE">Navigationsmenüpunkt Home</title>
 
         <input-field type="bool">

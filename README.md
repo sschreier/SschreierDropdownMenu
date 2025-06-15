@@ -4,12 +4,12 @@ An extension for a dropdown menu from _992 pixels_. The navigation menu item _Ho
 
 ## Possible Configurations
  - activate the dropdown menu
+ - show the menu right-aligned
  - set the shadow of the dropdown menu (*1)
  - set the distance to the left of the dropdown menu in pixels (*1)
  - set the min width of the dropdown menu in pixels (*1)
  - set the font size of the dropdown menu in pixels (*1)
  - set the padding of the dropdown menu (*1)
- - show the menu right-aligned
  - open the dropdown menus always to the left
  - open the dropdown menus of the last main navigation menu item of a line of a full-surface or multi-line menu to the left
  - select the number of main navigation menu items where the dropdown menu should open to the left
