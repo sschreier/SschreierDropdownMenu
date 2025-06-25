@@ -1,11 +1,11 @@
 import ViewportDetection from 'src/helper/viewport-detection.helper';
+const { PluginBaseClass } = window;
 
-export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
+export default class SschreierDropdownMenuRightPlugin extends PluginBaseClass {
     static options = {
         dropdownMenuMultiLineOpenLastChildToLeft: false,
         dropdownMenuNumberMainNavigationMenuItemsOpenToLeft: 1,
-        dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft: 3,
-        elementSelector: "[data-dropdown-menu-right]"
+        dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft: 3
     }
 
     init() {
@@ -17,7 +17,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
     }
 
     subscribeViewportEvent(){
-        document.$emitter.subscribe('Viewport/hasChanged', this.update, { scope: this });
+        document.$emitter.subscribe('Viewport/hasChanged', this.update, {scope: this});
     }
 
     update(){
@@ -33,8 +33,8 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
     }
 
     setDropdownMenuRight(){
-        const mainNavigationLinks = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link'),
-            dropdownMenuRemoveRight = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link .dropdown-menu');
+        const mainNavigationLinks = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container'),
+            dropdownMenuRemoveRight = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container .dropdown-menu');
 
         let topValue = 0,
             heightValue = ((mainNavigationLinks[0])?(mainNavigationLinks[0].offsetHeight):43),
@@ -68,23 +68,23 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
                 row = 1;
 
                 row1ElementCounter += 1;
-            } else if(topValue == heightValue) {
+            }else if (topValue == heightValue) {
                 row = 2;
 
                 row2ElementCounter += 1;
-            } else if(topValue == (heightValue * 2)) {
+            }else if (topValue == (heightValue * 2)) {
                 row = 3;
 
                 row3ElementCounter += 1;
-            } else if(topValue == (heightValue * 3)) {
+            }else if (topValue == (heightValue * 3)) {
                 row = 4;
 
                 row4ElementCounter += 1;
-            } else if(topValue == (heightValue * 4)) {
+            }else if (topValue == (heightValue * 4)) {
                 row = 5;
 
                 row5ElementCounter += 1;
-            } else if(topValue > (heightValue * 4)) {
+            }else if (topValue > (heightValue * 4)) {
                 row = 0;
             }
 
@@ -114,7 +114,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
                         mainNavigationLinks[i - 3].classList.add('open-to-left');
                     }
                 }
-            } else if (topValue == (heightValue * 2) && row2Counter == 0) {
+            }else if (topValue == (heightValue * 2) && row2Counter == 0) {
                 row2Counter += 1;
 
                 if (!mainNavigationLinks[i - 1].classList.contains('open-to-left') && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) {
@@ -132,7 +132,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
                         mainNavigationLinks[i - 3].classList.add('open-to-left');
                     }
                 }
-            } else if (topValue == (heightValue * 3) && row3Counter == 0) {
+            }else if (topValue == (heightValue * 3) && row3Counter == 0) {
                 row3Counter += 1;
 
                 if (!mainNavigationLinks[i - 1].classList.contains('open-to-left') && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) {
@@ -150,7 +150,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
                         mainNavigationLinks[i - 3].classList.add('open-to-left');
                     }
                 }
-            } else if (topValue == (heightValue * 4) && row4Counter == 0) {
+            }else if (topValue == (heightValue * 4) && row4Counter == 0) {
                 row4Counter += 1;
 
                 if (!mainNavigationLinks[i - 1].classList.contains('open-to-left') && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) {
@@ -168,7 +168,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
                         mainNavigationLinks[i - 3].classList.add('open-to-left');
                     }
                 }
-            } else if (topValue == (heightValue * 5) && row5Counter == 0) {
+            }else if (topValue == (heightValue * 5) && row5Counter == 0) {
                 row5Counter += 1;
 
                 if (!mainNavigationLinks[i - 1].classList.contains('open-to-left') && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) {
@@ -192,7 +192,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
         for (let n = 0; n < 5; ++n) {
             if (row == n) {
                 if ((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftLastChild)) {
-                    const mainNavigationLinksRowLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':last-child');
+                    const mainNavigationLinksRowLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container.dropdown.has-children.row-' + row + ':last-child');
 
                     for (let k = 0; k < mainNavigationLinksRowLastChild.length; ++k) {
                         if (!mainNavigationLinksRowLastChild[k].classList.contains('open-to-left')) {
@@ -203,7 +203,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
 
                 if ((this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 2) || (this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 3)) {
                     if ((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftSecondLastChild)) {
-                        const mainNavigationLinksRowSecondLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(2)');
+                        const mainNavigationLinksRowSecondLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container.dropdown.has-children.row-' + row + ':nth-last-child(2)');
 
                         for (let l = 0; l < mainNavigationLinksRowSecondLastChild.length; ++l) {
                             if (!mainNavigationLinksRowSecondLastChild[l].classList.contains('open-to-left')) {
@@ -215,7 +215,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
 
                 if (this.options.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft == 3) {
                     if ((row == 1 && row1ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 2 && row2ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 3 && row3ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 4 && row4ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild) || (row == 5 && row5ElementCounter > numberMainNavigationMenuItemsOpenToLeftThirdLastChild)) {
-                        const mainNavigationLinksRowThirdLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.dropdown.has-children.row-' + row + ':nth-last-child(3)');
+                        const mainNavigationLinksRowThirdLastChild = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container.dropdown.has-children.row-' + row + ':nth-last-child(3)');
 
                         for (let m = 0; m < mainNavigationLinksRowThirdLastChild.length; ++m) {
                             if (!mainNavigationLinksRowThirdLastChild[m].classList.contains('open-to-left')) {
@@ -227,7 +227,7 @@ export default class DropdownMenuRightPlugin extends window.PluginBaseClass {
             }
         }
 
-        const dropdownMenuRight = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation .main-navigation-menu > .main-navigation-link.open-to-left .dropdown-menu');
+        const dropdownMenuRight = document.querySelectorAll('.nav-main .dropdownmenu-open-last-childrens-to-left .main-navigation-menu .main-navigation-menu-list > .nav-item > .nav-item-link-container.open-to-left .dropdown-menu');
 
         for (let j = 0; j < dropdownMenuRight.length; ++j) {
             if (!dropdownMenuRight[j].classList.contains('dropdown-menu-right')) {

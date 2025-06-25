@@ -20,7 +20,6 @@ class SschreierDropdownMenu extends Plugin
         'dropdownMenuFontSize',
         'dropdownMenuPadding',
         'dropdownMenuDistanceTextToLeft',
-        'transitionDurationDropdownStickyMenu',
         'zIndexDropdownStickyMenu',
         'borderBottomDropdownStickyMenu'
     ];

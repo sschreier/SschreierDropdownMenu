@@ -1,0 +1,68 @@
+{% block layout_navbar_menu_items_level_0_inner %}
+	{% for treeItem in navigationTreeItem %}
+        {% set category = treeItem.category %}
+        {% set id = category.id %}
+        {% set name = category.translated.name %}
+        {% set hasChildren = treeItem.children|length > 0 %}
+
+		{% block layout_navbar_menu_item_level_0 %}
+            <li class="nav-item nav-item-{{ id }}">
+                <span class="nav-item-link-container nav-item-{{ id }}-link-container root p-2{% if treeItem.children|length > 0 %} dropdown has-children{% else %} has-no-children{% endif %}{% if category.type == 'folder' %} is-folder{% endif %}{% block layout_navbar_menu_item_level_0_link_container_cssclasses %}{% endblock %}">
+                    {% if category.type == 'folder' %}
+                        {% block layout_navbar_menu_item_folder_level_0 %}
+                            <span class="nav-link nav-item-{{ id }}-link root main-navigation-link p-2{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}{% block layout_navbar_menu_item_level_0_link_container_link_cssclasses %}{% endblock %}"
+                               title="{{ name }}">
+                                <div class="main-navigation-link-text{% block layout_navbar_menu_item_folder_level_0_link_text_cssclasses %}{% endblock %}" title="{{ name }}">
+                                    <span class="main-navigation-link-text-inner" itemprop="name">
+                                        {{ name }}
+
+                                        {% if treeItem.children|length > 0 %}
+                                            {% block layout_navbar_menu_item_folder_icon_level_0 %}
+                                                {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+                                            {% endblock %}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            </span>
+                        {% endblock %}
+                    {% else %}
+                        {% block layout_navbar_menu_item_level_0_no_folder %}
+                            <a class="nav-link nav-item-{{ id }}-link root main-navigation-link p-2{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}{% block layout_navbar_menu_item_level_0_no_folder_link_cssclasses %}{% endblock %}"
+                                href="{{ seoUrl('frontend.navigation.page', { navigationId: id }) }}"
+                                {% if category_linknewtab(category) %}target="_blank"{% endif %}
+                                itemprop="url"
+                                title="{{ name }}">
+                                <span class="main-navigation-link-text">
+                                    <span class="main-navigation-link-text-inner" itemprop="name">
+                                        {{ name }}
+
+                                        {% if treeItem.children|length > 0 %}
+                                            {% block layout_navbar_menu_item_level_0_no_folder_icon_after %}
+                                                {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
+                                            {% endblock %}
+                                        {% endif %}
+                                    </span>
+                                </span>
+                            </a>
+                        {% endblock %}
+                    {% endif %}
+
+                    {% if treeItem.children|length > 0 %}
+                        {% block layout_navbar_menu_item_level_0_dropdown_menu %}
+                            <div class="dropdown-menu dropdown-menu-level-{{ level }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_navbar_menu_item_level_0_dropdown_menu_additional_cssclasses %}{% endblock %}">
+                                {% block layout_navbar_menu_item_level_0_dropdown_menu_include %}
+                                    {% sw_include '@SschreierDropdownMenu/storefront/layout/navbar/navbar-items.html.twig' with {
+                                        themeIconConfig: themeIconConfig,
+                                        navigationTreeItem: treeItem.children,
+                                        level: level+1,
+                                        page: page
+                                    } %}
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    {% endif %}
+                </span>
+            </li>
+		{% endblock %}
+	{% endfor %}
+{% endblock %}

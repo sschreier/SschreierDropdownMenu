@@ -53,8 +53,8 @@
             <name>dropdownMenuFontSize</name>
             <label>font size in pixels</label>
             <label lang="de-DE">Schriftgröße in Pixeln</label>
-            <defaultValue>14</defaultValue>
-            <placeholder>14</placeholder>
+            <defaultValue>16</defaultValue>
+            <placeholder>16</placeholder>
         </input-field>
 
         <input-field type="text">
@@ -173,14 +173,6 @@
         <title lang="de-DE">Gestaltung des Sticky - Effekts für das Menü</title>
 
         <input-field type="int">
-            <name>transitionDurationDropdownStickyMenu</name>
-            <label>duration of the animation in milliseconds</label>
-            <label lang="de-DE">Dauer der Animation in Millisekunden</label>
-            <defaultValue>400</defaultValue>
-            <placeholder>400</placeholder>
-        </input-field>
-
-        <input-field type="int">
             <name>zIndexDropdownStickyMenu</name>
             <label>z-index value</label>
             <label lang="de-DE">z-index - Wert</label>
@@ -195,24 +187,6 @@
             <css>sschreier-background-color-dropdown-sticky-menu</css>
             <defaultValue>#ffffff</defaultValue>
             <placeholder>#ffffff</placeholder>
-        </input-field>
-
-        <input-field type="colorpicker">
-            <name>fontColorDropdownStickyMenu</name>
-            <label>font color of the navigation menu items</label>
-            <label lang="de-DE">Schriftfarbe der Navigationsmenüpunkte</label>
-            <css>sschreier-font-color-dropdown-sticky-menu</css>
-            <defaultValue>#4a545b</defaultValue>
-            <placeholder>#4a545b</placeholder>
-        </input-field>
-
-        <input-field type="colorpicker">
-            <name>hoverFontColorDropdownStickyMenu</name>
-            <label>hover font color of the navigation menu items</label>
-            <label lang="de-DE">Hover-Schriftfarbe der Navigationsmenüpunkte</label>
-            <css>sschreier-hover-font-color-dropdown-sticky-menu</css>
-            <defaultValue>#0b539b</defaultValue>
-            <placeholder>#0b539b</placeholder>
         </input-field>
 
         <input-field type="text">

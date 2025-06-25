@@ -1,78 +1,12 @@
-$sschreier-transition-duration-dropdown-sticky-menu: 400 !default;
 $sschreier-z-index-dropdown-sticky-menu: 1000 !default;
 $sschreier-background-color-dropdown-sticky-menu: #ffffff !default;
-$sschreier-font-color-dropdown-sticky-menu: $sw-text-color !default;
-$sschreier-hover-font-color-dropdown-sticky-menu: $sw-color-brand-primary !default;
 $sschreier-border-bottom-dropdown-sticky-menu: 1px solid #bcc1c7 !default;
 
-.main-navigation-dropdown-sticky {
-    background: $sschreier-background-color-dropdown-sticky-menu;
-    position: fixed;
+.nav-main-sticky {
+    background-color: $sschreier-background-color-dropdown-sticky-menu;
+    position: sticky;
     z-index: $sschreier-z-index-dropdown-sticky-menu;
     width: 100%;
     top: 0;
-    transition-delay: 0s;
-    transition-property: transform;
-    transition-duration: $sschreier-transition-duration-dropdown-sticky-menu * 1ms;
-    transition-timing-function: ease-in-out;
-    transform: translateY(-100%);
-
-    &.is--active {
-        transform: translateY(0);
-        border-bottom: $sschreier-border-bottom-dropdown-sticky-menu;
-    }
-}
-
-@media (min-width: 992px) {
-    .main-navigation-dropdown-sticky {
-        &.main-navigation-wrapper-dropdown {
-            .main-navigation {
-                .main-navigation-menu {
-                    > .main-navigation-link {
-                        > .main-navigation-link-text {
-                            color: $sschreier-font-color-dropdown-sticky-menu;
-
-                            .icon {
-                                color: $sschreier-font-color-dropdown-sticky-menu;
-
-                                svg {
-                                    color: $sschreier-font-color-dropdown-sticky-menu;
-                                }
-                            }
-                        }
-
-                        &.active {
-                            &:hover {
-                                > .main-navigation-link-text {
-                                    color: $sschreier-font-color-dropdown-sticky-menu;
-
-                                    .icon {
-                                        color: $sschreier-font-color-dropdown-sticky-menu;
-
-                                        svg {
-                                            color: $sschreier-font-color-dropdown-sticky-menu;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        &:hover {
-                            > .main-navigation-link-text {
-                                color: $sschreier-hover-font-color-dropdown-sticky-menu;
-
-                                .icon {
-                                    color: $sschreier-hover-font-color-dropdown-sticky-menu;
-
-                                    svg {
-                                        color: $sschreier-hover-font-color-dropdown-sticky-menu;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    border-bottom: $sschreier-border-bottom-dropdown-sticky-menu;
 }

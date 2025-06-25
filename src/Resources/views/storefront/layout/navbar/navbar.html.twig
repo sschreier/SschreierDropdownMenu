@@ -1,0 +1,128 @@
+{% sw_extends '@Storefront/storefront/layout/navbar/navbar.html.twig' %}
+
+{% block layout_navbar_nav_element %}
+    {% block layout_navbar_nav_element_dropdownmenu_before %}{% endblock %}
+
+    {% if config('SschreierDropdownMenu.config.dropdownStickyMenuIsActive') %}
+        {% set activeViewportsDropdownStickyMenuString = "" %}
+
+        {% for activeViewportDropdownStickyMenu in config('SschreierDropdownMenu.config.activeViewportsDropdownStickyMenu') %}
+            {% set activeViewportsDropdownStickyMenuString = activeViewportsDropdownStickyMenuString ~ activeViewportDropdownStickyMenu %}
+        {% endfor %}
+
+        {% if activeViewportsDropdownStickyMenuString == "lgxlxxl" or activeViewportsDropdownStickyMenuString == "lgxxlxl" or activeViewportsDropdownStickyMenuString == "xxllgxl" or activeViewportsDropdownStickyMenuString == "xllgxxl" or activeViewportsDropdownStickyMenuString == "xxlxllg" or activeViewportsDropdownStickyMenuString == "xlxxllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xxlxl" or activeViewportsDropdownStickyMenuString == "xlxxl" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lgxxl" or activeViewportsDropdownStickyMenuString == "xxllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lgxl" or activeViewportsDropdownStickyMenuString == "xllg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "lg" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'XL', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xl" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XXL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "xxl" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL'" %}
+        {% elseif activeViewportsDropdownStickyMenuString == "" %}
+            {% set notActiveViewportsDropdownStickyMenuString = "'XS', 'SM', 'MD', 'LG', 'XL', 'XXL'" %}
+        {% endif %}
+
+        {% block layout_navbar_nav_element_dropdownmenu_stickymenu_inner_before %}{% endblock %}
+
+        <div class="navbar-wrapper navbar-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}{% if not(config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft')) %} dropdownmenu-open-last-childrens-to-left{% endif %}{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuRightAligned') %} dropdownmenu-is-right-aligned{% endif %}"
+             data-sschreier-dropdown-menu-sticky-effect="true"
+             data-sschreier-dropdown-menu-sticky-effect-plugin-options='{
+                "positionDropdownStickyMenuIsActive": "{{ config('SschreierDropdownMenu.config.positionDropdownStickyMenuIsActive') }}",
+                "notActiveViewportsDropdownStickyMenu": "{{ notActiveViewportsDropdownStickyMenuString }}",
+                "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
+                "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
+                "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
+             }'>
+            {% block layout_navbar_nav_element_dropdownmenu_stickymenu_inner_div_before %}{% endblock %}
+
+            {{ parent() }}
+
+            {% block layout_navbar_nav_element_dropdownmenu_stickymenu_inner_div_after %}{% endblock %}
+        </div>
+
+        {% block layout_navbar_nav_element_dropdownmenu_stickymenu_inner_after %}{% endblock %}
+    {% else %}
+        {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
+            <div class="navbar-wrapper navbar-wrapper-dropdown{% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %} has-dropdownmenu{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') %}{% if not(config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft')) %} dropdownmenu-open-last-childrens-to-left{% endif %}{% endif %}{% if config('SschreierDropdownMenu.config.dropdownMenuRightAligned') %} dropdownmenu-is-right-aligned{% endif %}"
+                 data-sschreier-dropdown-menu-right="true"
+                 data-sschreier-dropdown-menu-right-plugin-options='{
+                    "dropdownMenuMultiLineOpenLastChildToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMultiLineOpenLastChildToLeft') }}",
+                    "dropdownMenuNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuNumberMainNavigationMenuItemsOpenToLeft') }}",
+                    "dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft": "{{ config('SschreierDropdownMenu.config.dropdownMenuMinimumNumberMainNavigationMenuItemsOpenToLeft') }}"
+                 }'>
+                {% block layout_navbar_nav_element_dropdownmenu_no_stickymenu_inner_before %}{% endblock %}
+
+                {{ parent() }}
+
+                {% block layout_navbar_nav_element_dropdownmenu_no_stickymenu_inner_after %}{% endblock %}
+            </div>
+        {% else %}
+            {% block layout_navbar_nav_element_dropdownmenu_default_before %}{% endblock %}
+
+            {{ parent() }}
+
+            {% block layout_navbar_nav_element_dropdownmenu_default_after %}{% endblock %}
+        {% endif %}
+    {% endif %}
+
+    {% block layout_navbar_nav_element_dropdownmenu_after %}{% endblock %}
+{% endblock %}
+
+{% block layout_navbar_menu_home %}
+    {% block layout_navbar_menu_home_dropdownmenu_before %}{% endblock %}
+
+    {% if config('SschreierDropdownMenu.config.showNavigationMenuItemHome') %}
+        {% if config('SschreierDropdownMenu.config.replaceNavigationMenuItemHomeWithIcon') %}
+            {% block layout_navbar_menu_home_dropdownmenu_custom %}
+                <li class="nav-item nav-item-{{ context.salesChannel.navigationCategoryId }}">
+                    <a class="nav-link main-navigation-link home-link root nav-item-{{ context.salesChannel.navigationCategoryId }}-link"
+                       href="{{ path('frontend.home.page') }}"
+                       itemprop="url"
+                       title="{{ homeLabel|striptags }}">
+                        <div class="main-navigation-link-text">
+                            <span class="icon-home-container">{% sw_icon 'home' %}</span>
+                            <span class="d-none" itemprop="name">{{ homeLabel|sw_sanitize }}</span>
+                        </div>
+                    </a>
+                </li>
+            {% endblock %}
+        {% else %}
+            {% block layout_navbar_menu_home_dropdownmenu_default_before %}{% endblock %}
+
+            {{ parent() }}
+
+            {% block layout_navbar_menu_home_dropdownmenu_default_after %}{% endblock %}
+        {% endif %}
+    {% endif %}
+
+    {% block layout_navbar_menu_home_dropdownmenu_after %}{% endblock %}
+{% endblock %}
+
+{% block layout_navbar_menu_items %}
+    {% block layout_navbar_menu_items_dropdownmenu_before %}{% endblock %}
+
+    {% if config('SschreierDropdownMenu.config.dropdownMenuIsActive') %}
+        {% block layout_navbar_menu_items_dropdownmenu_custom %}
+            {% sw_include '@SschreierDropdownMenu/storefront/layout/navbar/navbar-items-level-0.html.twig' with {
+                themeIconConfig: themeIconConfig,
+                navigationTreeItem: header.navigation.tree,
+                level: 0,
+                page: page
+            } %}
+        {% endblock %}
+    {% else %}
+        {% block layout_navbar_menu_items_dropdownmenu_default_before %}{% endblock %}
+
+        {{ parent() }}
+
+        {% block layout_navbar_menu_items_dropdownmenu_default_after %}{% endblock %}
+    {% endif %}
+
+    {% block layout_navbar_menu_items_dropdownmenu_after %}{% endblock %}
+{% endblock %}
