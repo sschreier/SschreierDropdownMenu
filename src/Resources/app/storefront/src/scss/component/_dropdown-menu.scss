@@ -27,6 +27,10 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
                 position: relative;
             }
 
+            > .navbar-collapse > .navbar-nav > .nav-item {
+                position: initial;
+            }
+
             > .navbar-collapse > .navbar-nav > .nav-item > .main-navigation-link.home-link {
                 padding: 8px 32px 8px 0;
             }
@@ -44,11 +48,13 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
 
                         .main-navigation-link-text-inner {
                             padding-right: 20px;
+                            position: relative;
 
                             span {
                                 &.icon {
                                     position: absolute;
                                     margin-left: 3px;
+                                    top: -2px;
                                 }
                             }
                         }

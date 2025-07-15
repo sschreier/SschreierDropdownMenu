@@ -6,12 +6,12 @@
         {% set hasChildren = treeItem.children|length > 0 %}
 
 		{% block layout_navbar_menu_item_level_0 %}
-            <li class="nav-item nav-item-{{ id }}">
+            <li class="nav-item nav-item-{{ id }} root{% if treeItem.children|length > 0 %} dropdown has-children{% else %} has-no-children{% endif %}">
                 <span class="nav-item-link-container nav-item-{{ id }}-link-container root p-2{% if treeItem.children|length > 0 %} dropdown has-children{% else %} has-no-children{% endif %}{% if category.type == 'folder' %} is-folder{% endif %}{% block layout_navbar_menu_item_level_0_link_container_cssclasses %}{% endblock %}">
                     {% if category.type == 'folder' %}
                         {% block layout_navbar_menu_item_folder_level_0 %}
                             <span class="nav-link nav-item-{{ id }}-link root main-navigation-link p-2{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}{% block layout_navbar_menu_item_level_0_link_container_link_cssclasses %}{% endblock %}"
-                               title="{{ name }}">
+                                title="{{ name }}">
                                 <div class="main-navigation-link-text{% block layout_navbar_menu_item_folder_level_0_link_text_cssclasses %}{% endblock %}" title="{{ name }}">
                                     <span class="main-navigation-link-text-inner" itemprop="name">
                                         {{ name }}
