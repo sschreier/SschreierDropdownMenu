@@ -10,7 +10,7 @@
                 <div class="nav-link nav-item-{{ id }}-link main-navigation-link{% if treeItem.children|length > 0 %} dropdown has-children{% else %} has-no-children{% endif %}{% if category.type == 'folder' %} is-folder{% endif %}{% if level > 0 %} dropend{% endif %}{% block layout_navbar_menu_item_link_container_cssclasses %}{% endblock %}">
                     {% if category.type == 'folder' %}
                         {% block layout_navbar_menu_item_folder %}
-                            <div class="main-navigation-link-text{% block layout_navbar_menu_item_folder_link_text_cssclasses %}{% endblock %}" title="{{ name }}">
+                            <span class="main-navigation-link-text{% block layout_navbar_menu_item_folder_link_text_cssclasses %}{% endblock %}" title="{{ name }}">
                                 <span class="main-navigation-link-text-inner" itemprop="name">
                                     {{ name }}
 
@@ -20,14 +20,14 @@
                                         {% endblock %}
                                     {% endif %}
                                 </span>
-                            </div>
+                            </span>
                         {% endblock %}
                     {% else %}
                         {% block layout_navbar_menu_item_no_folder %}
                             <div class="nav-item nav-item-{{ id }}">
                                 <a class="nav-link nav-item-{{ id }}-link main-navigation-link p-2 nav-item-{{ id }}{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}{% block layout_navbar_menu_item_no_folder_link_cssclasses %}{% endblock %}"
-                                    href="{{ seoUrl('frontend.navigation.page', { navigationId: id }) }}"
-                                    {% if category_linknewtab(category) %}target="_blank"{% endif %}
+                                    href="{{ category.seoUrl }}"
+                                    {% if category.shouldOpenInNewTab %}target="_blank"{% endif %}
                                     itemprop="url"
                                     title="{{ name }}">
                                     <span class="main-navigation-link-text">
