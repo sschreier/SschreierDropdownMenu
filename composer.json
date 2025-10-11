@@ -1,7 +1,7 @@
 {
     "name": "sschreier/sschreierdropdownmenu",
     "description": "dropdown menu",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "type": "shopware-platform-plugin",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -11,8 +11,8 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.7.1",
-        "shopware/storefront": "~6.7.1"
+        "shopware/core": "~6.7.3",
+        "shopware/storefront": "~6.7.3"
     },
     "extra": {
         "shopware-plugin-class": "Sschreier\\DropdownMenu\\SschreierDropdownMenu",
@@ -27,12 +27,12 @@
             "en-GB": "A extension for a dropdown menu from 992 pixels, at which the navigation menu item Home can also be hidden or can be replaced by a house icon."
         },
         "manufacturerLink": {
-            "de-DE": "https://www.sebastianschreier.de",
-            "en-GB": "https://www.sebastianschreier.de"
+            "de-DE": "https://www.web-solutions-dresden.de",
+            "en-GB": "https://www.web-solutions-dresden.de"
         },
         "supportLink": {
-            "de-DE": "https://www.sebastianschreier.de",
-            "en-GB": "https://www.sebastianschreier.de"
+            "de-DE": "https://www.web-solutions-dresden.de",
+            "en-GB": "https://www.web-solutions-dresden.de"
         }
     },
     "autoload": {

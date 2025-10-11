@@ -87,64 +87,64 @@ bin/console plugin:install --activate SschreierDropdownMenu
 
 ### default navigation menu with dropdown menu
 
-![default navigation menu with dropdown menu](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image1.jpg)
+![default navigation menu with dropdown menu](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image1.jpg)
 
 ### default navigation menu with dropdown menu with hover about navigation menu item Music
 
-![default navigation menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image2.jpg)
+![default navigation menu with hover about navigation menu item Music](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image2.jpg)
 
 ### default navigation menu with dropdown menu with hover about navigation menu item  Music, Books & Games
 
-![default navigation menu with dropdown menu with hover about navigation menu item  Music, Books & Games](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image3.jpg)
+![default navigation menu with dropdown menu with hover about navigation menu item  Music, Books & Games](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image3.jpg)
 
 ### default navigation menu with dropdown menu with hover about navigation menu item women where the dropdown menu open to the left
 
-![default navigation menu with dropdown menu with hover about navigation menu item women where the dropdown menu open to the left](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image16.jpg)
+![default navigation menu with dropdown menu with hover about navigation menu item women where the dropdown menu open to the left](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image16.jpg)
 
 ### sticky navigation menu with dropdown menu
 
-![sticky navigation menu with dropdown menu](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image4.jpg)
+![sticky navigation menu with dropdown menu](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image4.jpg)
 
 ### sticky navigation menu with dropdown menu with hover about navigation menu item Music
 
-![sticky navigation menu with dropdown menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image5.jpg)
+![sticky navigation menu with dropdown menu with hover about navigation menu item Music](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image5.jpg)
 
 ### sticky navigation menu with dropdown menu where the navigation menu item Home was replaced by a house icon
 
-![sticky navigation menu with dropdown menu where the navigation menu item Home was replaced by a house icon](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image6.jpg)
+![sticky navigation menu with dropdown menu where the navigation menu item Home was replaced by a house icon](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image6.jpg)
 
 ### sticky navigation menu with dropdown menu where the navigation menu item Home has been hidden
 
-![sticky navigation menu with dropdown menu where the navigation menu item Home has been hidden](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image7.jpg)
+![sticky navigation menu with dropdown menu where the navigation menu item Home has been hidden](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image7.jpg)
 
 ### default navigation menu without dropdown menu
 
-![default navigation menu without dropdown menu](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image8.jpg)
+![default navigation menu without dropdown menu](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image8.jpg)
 
 ### default navigation menu without dropdown menu with hover about navigation menu item Music
 
-![default navigation menu without hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image9.jpg)
+![default navigation menu without hover about navigation menu item Music](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image9.jpg)
 
 ### sticky navigation menu without dropdown menu
 
-![sticky navigation menu without dropdown menu](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image10.jpg)
+![sticky navigation menu without dropdown menu](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image10.jpg)
 
 ### sticky navigation menu without dropdown menu with hover about navigation menu item Music
 
-![sticky navigation menu without dropdown menu with hover about navigation menu item Music](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image11.jpg)
+![sticky navigation menu without dropdown menu with hover about navigation menu item Music](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image11.jpg)
 
 ### extension configuration - part 1
 
-![extension configuration - part 1](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
+![extension configuration - part 1](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image12.jpg)
 
 ### extension configuration - part 2
 
-![extension configuration - part 2](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
+![extension configuration - part 2](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image13.jpg)
 
 ### extension configuration - part 3
 
-![extension configuration - part 3](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
+![extension configuration - part 3](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image14.jpg)
 
 ### extension configuration - part 4
 
-![extension configuration - part 4](https://www.sebastianschreier.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image15.jpg)
+![extension configuration - part 4](https://www.web-solutions-dresden.de/plugins/sschreierDropdownmenu/sschreierDropdownmenu-Image15.jpg)
