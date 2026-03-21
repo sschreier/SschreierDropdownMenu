@@ -19,20 +19,19 @@
                                 <span class="main-navigation-link-text{% block layout_navbar_menu_item_level_0_link_text_cssclasses %}{% endblock %}">
                                     <span class="main-navigation-link-text-inner" itemprop="name">
                                         {{ name }}
-
-                                        {% if treeItem.children|length > 0 %}
-                                            {% block layout_navbar_menu_item_folder_icon_level_0 %}
-                                                {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs' }%}
-                                            {% endblock %}
-                                        {% endif %}
                                     </span>
                                 </span>
                             </a>
+                            {% if treeItem.children|length > 0 %}
+                                <button type="button" class="dropdown-toggle dropdown-toggle-button dropdown-toggle-button-sub" data-dropdown-toggle-id="{{ id }}" data-dropdown-toggle-level="{{ level }}" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">{{ "sschreier.dropdownmenu.dropdownToggleButtonText"|trans({"%name%": name})|raw }}</span>
+                                </button>
+                            {% endif %}
                         {% endblock %}
 
                         {% if treeItem.children|length > 0 %}
                             {% block layout_navbar_menu_item_level_0_dropdown_menu %}
-                                <div class="dropdown-menu dropdown-menu-level-{{ level }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_navbar_menu_item_level_0_dropdown_menu_additional_cssclasses %}{% endblock %}">
+                                <div class="dropdown-menu dropdown-menu-level-{{ level }} dropdown-menu-{{ id }}{% if config('SschreierDropdownMenu.config.dropdownMenuAlwaysOpenToLeft') %} dropdown-menu-right{% endif %}{% block layout_navbar_menu_item_level_0_dropdown_menu_additional_cssclasses %}{% endblock %}">
                                     {% block layout_navbar_menu_item_level_0_dropdown_menu_include %}
                                         {% sw_include '@SschreierDropdownMenu/storefront/layout/navbar/navbar-items.html.twig' with {
                                             themeIconConfig: themeIconConfig,

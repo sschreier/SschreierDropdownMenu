@@ -18,9 +18,50 @@ export default class SschreierDropdownMenuStickyEffectPlugin extends PluginBaseC
             this.initializePlugin();
         }
 
+        this.addeKeyboardBehavior();
+
         if (this.options.dropdownMenuMultiLineOpenLastChildToLeft && this.dropdownMenuShouldBeActive()) {
             this.setDropdownMenuRight();
         }
+    }
+
+    addeKeyboardBehavior() {
+        const dropdownToggleButtonsSub = document.querySelectorAll(".dropdown-toggle-button-sub");
+
+        dropdownToggleButtonsSub.forEach((dropdownToggleButton) => {
+            const dropdownToggleButtonId = dropdownToggleButton.getAttribute("data-dropdown-toggle-id"),
+                dropdownToggleButtonLevel = dropdownToggleButton.getAttribute("data-dropdown-toggle-level"),
+                dropdownToggleButtonDropdownMenu = document.querySelector(".dropdown-menu-" + dropdownToggleButtonId),
+                thisElem = this;
+
+            dropdownToggleButton.addEventListener("click", function (e) {
+                const dropdownToggleButtonAriaExpanded = dropdownToggleButton.getAttribute("aria-expanded");
+
+                if (dropdownToggleButtonLevel === "0") {
+                    thisElem.closeDropdowns(dropdownToggleButtonsSub, document.querySelectorAll(".dropdown-menu"));
+                } else if (dropdownToggleButtonLevel === "1" || dropdownToggleButtonLevel === "2" || dropdownToggleButtonLevel === "3" || dropdownToggleButtonLevel === "4" || dropdownToggleButtonLevel === "5") {
+                    thisElem.closeDropdowns(document.querySelectorAll(".dropdown-toggle-button-sub[data-dropdown-toggle-level=\"" + dropdownToggleButtonLevel + "\"]"), document.querySelectorAll(".dropdown-menu-level-" + dropdownToggleButtonLevel));
+                }
+
+                if (dropdownToggleButtonAriaExpanded === "true") {
+                    dropdownToggleButton.setAttribute("aria-expanded", "false");
+                    dropdownToggleButtonDropdownMenu.classList.remove("show");
+                } else {
+                    dropdownToggleButton.setAttribute("aria-expanded", "true");
+                    dropdownToggleButtonDropdownMenu.classList.add("show");
+                }
+            });
+        });
+    }
+
+    closeDropdowns(elemSelectorButton, elemSelectorDropdownMenu) {
+        elemSelectorButton.forEach((button) => {
+            button.setAttribute("aria-expanded", "false");
+        });
+
+        elemSelectorDropdownMenu.forEach((dropdownMenu) => {
+            dropdownMenu.classList.remove("show");
+        });
     }
 
     subscribeViewportEvent(){
