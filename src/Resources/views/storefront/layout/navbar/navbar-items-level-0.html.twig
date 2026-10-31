@@ -1,4 +1,5 @@
 {% block layout_navbar_menu_items_level_0_inner %}
+    {% set level = level|default(0) %}
 	{% for treeItem in navigationTreeItem %}
         {% set category = treeItem.category %}
         {% set id = category.id %}
@@ -13,7 +14,7 @@
                         {% block layout_navbar_menu_item_level_0_link %}
                             <a class="nav-link nav-item-{{ id }}-link root main-navigation-link p-2{% if treeItem.children|length > 0 %} has-children{% else %} has-no-children{% endif %}{% block layout_navbar_menu_item_level_0_link_cssclasses %}{% endblock %}"
                                 href="{{ category.seoUrl ?: '#' }}"
-                                {% if category.type != 'folder' and category.shouldOpenInNewTab %}target="_blank"{% endif %}
+                                {% if category.type != 'folder' and category.shouldOpenInNewTab %}target="_blank" rel="noopener noreferrer"{% endif %}
                                 itemprop="url"
                                 title="{{ name }}">
                                 <span class="main-navigation-link-text{% block layout_navbar_menu_item_level_0_link_text_cssclasses %}{% endblock %}">

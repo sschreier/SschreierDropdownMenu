@@ -27,8 +27,12 @@ export default class SschreierDropdownMenuRightPlugin extends PluginBaseClass {
                 dropdownToggleButtonDropdownMenu = document.querySelector(".dropdown-menu-" + dropdownToggleButtonId),
                 thisElem = this;
 
-            dropdownToggleButton.addEventListener("click", function (e) {
+            dropdownToggleButton.addEventListener("click", function () {
                 const dropdownToggleButtonAriaExpanded = dropdownToggleButton.getAttribute("aria-expanded");
+
+                if (!dropdownToggleButtonDropdownMenu) {
+                    return;
+                }
 
                 if (dropdownToggleButtonLevel === "0") {
                     thisElem.closeDropdowns(dropdownToggleButtonsSub, document.querySelectorAll(".dropdown-menu"));

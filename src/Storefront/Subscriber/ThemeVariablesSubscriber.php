@@ -35,11 +35,22 @@ class ThemeVariablesSubscriber implements EventSubscriberInterface
     {
         $configFields = $this->systemConfig->get('SschreierDropdownMenu.config', $event->getSalesChannelId());
 
-        foreach($configFields as $configKey => $value) {
-            // convert `customVariableName` to `custom-variable-name`
-            $kebabCasedScssVariable = str_replace('_', '-', (new CamelCaseToSnakeCaseNameConverter())->normalize($configKey));
+        if (!is_array($configFields)) {
+            return;
+        }
 
-            if($value && in_array($configKey, SschreierDropdownMenu::PLUGIN_CONFIG_VARS)) {
+        $nameConverter = new CamelCaseToSnakeCaseNameConverter();
+
+        foreach ($configFields as $configKey => $value) {
+            // convert `customVariableName` to `custom-variable-name`
+            $kebabCasedScssVariable = str_replace('_', '-', $nameConverter->normalize($configKey));
+
+            if(
+                in_array($configKey, SschreierDropdownMenu::PLUGIN_CONFIG_VARS, true)
+                && $value !== null
+                && $value !== ''
+                && $value !== false
+            ) {
                 $event->addVariable(
                     'sschreier-' . $kebabCasedScssVariable,
                     (string) $value

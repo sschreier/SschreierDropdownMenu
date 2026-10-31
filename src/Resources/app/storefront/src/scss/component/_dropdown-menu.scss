@@ -159,7 +159,8 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
                     }
                 }
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     > .main-navigation-link-text {
                         color: $sw-color-brand-primary;
 
@@ -191,7 +192,8 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
                     }
                 }
 
-                &:hover {
+                &:hover,
+                &:focus-visible {
                     > .main-navigation-link-text {
                         color: $sw-color-brand-primary !important;
 
@@ -313,7 +315,8 @@ $sschreier-dropdown-menu-distance-text-to-left: 16 !default;
                     }
 
                     .main-navigation-link-text {
-                        &:hover {
+                        &:hover,
+                        &:focus-visible {
                             color: $sw-color-brand-primary;
 
                             .icon {

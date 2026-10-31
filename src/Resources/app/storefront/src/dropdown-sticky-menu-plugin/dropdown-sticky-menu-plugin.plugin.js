@@ -12,6 +12,8 @@ export default class SschreierDropdownMenuStickyEffectPlugin extends PluginBaseC
     }
 
     init() {
+        this._onScrollHandler = this.onScroll.bind(this);
+
         this.subscribeViewportEvent();
 
         if (this.pluginShouldBeActive()){
@@ -34,8 +36,12 @@ export default class SschreierDropdownMenuStickyEffectPlugin extends PluginBaseC
                 dropdownToggleButtonDropdownMenu = document.querySelector(".dropdown-menu-" + dropdownToggleButtonId),
                 thisElem = this;
 
-            dropdownToggleButton.addEventListener("click", function (e) {
+            dropdownToggleButton.addEventListener("click", function () {
                 const dropdownToggleButtonAriaExpanded = dropdownToggleButton.getAttribute("aria-expanded");
+
+                if (!dropdownToggleButtonDropdownMenu) {
+                    return;
+                }
 
                 if (dropdownToggleButtonLevel === "0") {
                     thisElem.closeDropdowns(dropdownToggleButtonsSub, document.querySelectorAll(".dropdown-menu"));
@@ -305,16 +311,20 @@ export default class SschreierDropdownMenuStickyEffectPlugin extends PluginBaseC
     }
 
     addEventListener(){
-        document.addEventListener('scroll', this.onScroll.bind(this));
+        document.addEventListener('scroll', this._onScrollHandler);
     }
 
     removeEventListener(){
-        document.removeEventListener('scroll', this.onScroll.bind(this));
+        document.removeEventListener('scroll', this._onScrollHandler);
     }
 
     onScroll(){
         const navMain = document.querySelector('.nav-main'),
             scrollPosition = document.documentElement.scrollTop;
+
+        if (!navMain) {
+            return;
+        }
 
         if (scrollPosition > this.options.positionDropdownMenuStickyEffectIsActive) {
             if (!navMain.classList.contains(this.options.dropdownMenuStickyClass)) {
